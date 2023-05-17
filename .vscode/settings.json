@@ -1,0 +1,19 @@
+{
+    "cSpell.words": [
+        "autonumber",
+        "callout",
+        "Deno",
+        "frontmatter",
+        "hexo",
+        "hljs",
+        "preprocess",
+        "prismjs",
+        "Skynet",
+        "styl",
+        "titlecase",
+        "Todos",
+        "useragent",
+        "yourdomain"
+    ],
+    "MarkdownPaste.path": "${fileDirname}"
+}
