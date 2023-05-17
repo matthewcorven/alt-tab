@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+  <meta name="generator" content="Hexo 6.3.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <script class="next-config" data-name="main" type="application/json">
+    {
+      "hostname": "alt-tab.io",
+      "root": "/",
+      "images": "/images",
+      "scheme": "Pisces",
+      "darkmode": true,
+      "version": "8.15.1",
+      "exturl": false,
+      "sidebar":
+      {
+        "position": "left",
+        "display": "post",
+        "padding": 18,
+        "offset": 12
+      },
+      "copycode":
+      {
+        "enable": true,
+        "style": null
+      },
+      "bookmark":
+      {
+        "enable": false,
+        "color": "#222",
+        "save": "auto"
+      },
+      "mediumzoom": false,
+      "lazyload": false,
+      "pangu": false,
+      "comments":
+      {
+        "style": "tabs",
+        "active": null,
+        "storage": true,
+        "lazyload": false,
+        "nav": null
+      },
+      "stickytabs": false,
+      "motion":
+      {
+        "enable": true,
+        "async": false,
+        "transition":
+        {
+          "menu_item": "fadeInDown",
+          "post_block": "fadeIn",
+          "post_header": "fadeInDown",
+          "post_body": "fadeInDown",
+          "coll_header": "fadeInLeft",
+          "sidebar": "fadeInUp"
+        }
+      },
+      "prism": false,
+      "i18n":
+      {
+        "placeholder": "Searching...",
+        "empty": "We didn't find any results for the search: ${query}",
+        "hits_time": "${hits} results found in ${time} ms",
+        "hits": "${hits} results found"
+      },
+      "path": "/search.xml",
+      "localsearch":
+      {
+        "enable": true,
+        "trigger": "auto",
+        "top_n_per_article": -1,
+        "unescape": false,
+        "preload": false
+      }
+    }
+
+  </script>
+  <script src="/js/config.js"></script>
+  <meta name="description" content="via GIPHY   Shiny New ToyEnter Stage Right: ChatGPT&#39;s initial plugin framework release promises to dazzle by connecting it to the internet.    OpenAI plugins connect ChatGPT to third-party appl">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ChatGPT Plugins - First Impressions">
+  <meta property="og:url" content="https://alt-tab.io/2023/05/06/ChatGPT%20Plugins%20-%20First%20Impressions/index.html">
+  <meta property="og:site_name" content="alt-tab.io">
+  <meta property="og:description" content="via GIPHY   Shiny New ToyEnter Stage Right: ChatGPT&#39;s initial plugin framework release promises to dazzle by connecting it to the internet.    OpenAI plugins connect ChatGPT to third-party appl">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://alt-tab.io/2023-05-15T224510.png">
+  <meta property="og:image" content="https://alt-tab.io/2023-05-15T224540.png">
+  <meta property="og:image" content="https://alt-tab.io/2023-05-15T224602.png">
+  <meta property="og:image" content="https://alt-tab.io/2023-05-15T224619.png">
+  <meta property="og:image" content="https://alt-tab.io/2023-05-15T224628.png">
+  <meta property="og:image" content="https://alt-tab.io/2023-05-15T224708.png">
+  <meta property="og:image" content="https://alt-tab.io/2023-05-15T224645.png">
+  <meta property="article:published_time" content="2023-05-06T04:00:00.000Z">
+  <meta property="article:modified_time" content="2023-05-17T04:10:16.510Z">
+  <meta property="article:author" content="Matthew Corven">
+  <meta property="article:tag" content="ChatGPT">
+  <meta property="article:tag" content="OpenAI">
+  <meta property="article:tag" content="AI">
+  <meta property="article:tag" content="NLP">
+  <meta property="article:tag" content="GPT-4">
+  <meta property="article:tag" content="Plugins">
+  <meta property="article:tag" content="Python">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://alt-tab.io/2023-05-15T224510.png">
+  <link rel="canonical" href="https://alt-tab.io/2023/05/06/ChatGPT%20Plugins%20-%20First%20Impressions/">
+  <script class="next-config" data-name="page" type="application/json">
+    {
+      "sidebar": "",
+      "isHome": false,
+      "isPost": true,
+      "lang": "en",
+      "comments": true,
+      "permalink": "https://alt-tab.io/2023/05/06/ChatGPT%20Plugins%20-%20First%20Impressions/",
+      "path": "2023/05/06/ChatGPT Plugins - First Impressions/",
+      "title": "ChatGPT Plugins - First Impressions"
+    }
+
+  </script>
+  <script class="next-config" data-name="calendar" type="application/json">
+    ""
+
+  </script>
+  <title>ChatGPT Plugins - First Impressions | alt-tab.io</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="alternate" type="application/rss+xml" title="alt-tab.io: Adventures in context switching" href="/rss.xml" />
+  <link rel="alternate" type="application/atom+xml" title="alt-tab.io: Adventures in context switching" href="/atom.xml" />
+  <link rel="alternate" type="application/json" title="alt-tab.io: Adventures in context switching" href="/feed.json" />
+  <style>
+    .references
+    {
+      padding: 1px 10px 1px 10px;
+      margin-top: 5rem;
+      margin-left: -4px;
+      border-left: 4px solid grey;
+      background-color: #00000020
+    }
+
+    .references h2
+    {
+      margin-bottom: 1rem;
+    }
+
+    .references ul,
+    .references ol
+    {}
+
+    .references li
+    {
+      margin-bottom: 0.5rem;
+    }
+
+  </style>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="site-brand-container">
+          <div class="site-nav-toggle">
+            <div class="toggle" aria-label="Toggle navigation bar" role="button">
+              <span class="toggle-line"></span>
+              <span class="toggle-line"></span>
+              <span class="toggle-line"></span>
+            </div>
+          </div>
+          <div class="site-meta">
+            <a href="/" class="brand" rel="start">
+              <i class="logo-line"></i>
+              <p class="site-title">alt-tab.io</p>
+              <i class="logo-line"></i>
+            </a>
+            <p class="site-subtitle" itemprop="description">Adventures in context switching</p>
+          </div>
+          <div class="site-nav-right">
+            <div class="toggle popup-trigger" aria-label="Search" role="button">
+              <i class="fa fa-search fa-fw fa-lg"></i>
+            </div>
+          </div>
+        </div>
+        <nav class="site-nav">
+          <ul class="main-menu menu">
+            <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+            <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+            <li class="menu-item menu-item-search">
+              <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="search-pop-overlay">
+          <div class="popup search-popup">
+            <div class="search-header">
+              <span class="search-icon">
+                <i class="fa fa-search"></i>
+              </span>
+              <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+              </div>
+              <span class="popup-btn-close" role="button">
+                <i class="fa fa-times-circle"></i>
+              </span>
+            </div>
+            <div class="search-result-container no-result">
+              <div class="search-result-icon">
+                <i class="fa fa-spinner fa-pulse fa-5x"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <aside class="sidebar">
+        <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+          <ul class="sidebar-nav">
+            <li class="sidebar-nav-toc"> Table of Contents </li>
+            <li class="sidebar-nav-overview"> Overview </li>
+          </ul>
+          <div class="sidebar-panel-container">
+            <!--noindex-->
+            <div class="post-toc-wrap sidebar-panel">
+              <div class="post-toc animated">
+                <ol class="nav">
+                  <li class="nav-item nav-level-2"><a class="nav-link" href="#Shiny-New-Toy"><span class="nav-number">1.</span> <span class="nav-text">Shiny New Toy</span></a></li>
+                  <li class="nav-item nav-level-2"><a class="nav-link" href="#Availability"><span class="nav-number">2.</span> <span class="nav-text">Availability</span></a></li>
+                  <li class="nav-item nav-level-2"><a class="nav-link" href="#Architecture"><span class="nav-number">3.</span> <span class="nav-text">Architecture</span></a></li>
+                  <li class="nav-item nav-level-2"><a class="nav-link" href="#Plugin-Flow-Production"><span class="nav-number">4.</span> <span class="nav-text">Plugin Flow (Production)</span></a></li>
+                  <li class="nav-item nav-level-2"><a class="nav-link" href="#Plugin-Flow-Local-Development"><span class="nav-number">5.</span> <span class="nav-text">Plugin Flow (Local Development)</span></a></li>
+                  <li class="nav-item nav-level-2"><a class="nav-link" href="#Local-quot-Quickstart-quot-Demo"><span class="nav-number">6.</span> <span class="nav-text">Local &quot;Quickstart&quot; Demo</span></a>
+                    <ol class="nav-child">
+                      <li class="nav-item nav-level-3"><a class="nav-link" href="#Running-the-Plugin-API-Locally"><span class="nav-number">6.1.</span> <span class="nav-text">Running the Plugin (API) Locally</span></a></li>
+                      <li class="nav-item nav-level-3"><a class="nav-link" href="#Connect-ChatGPT"><span class="nav-number">6.2.</span> <span class="nav-text">Connect ChatGPT</span></a></li>
+                      <li class="nav-item nav-level-3"><a class="nav-link" href="#Test-Drive"><span class="nav-number">6.3.</span> <span class="nav-text">Test Drive!</span></a></li>
+                    </ol>
+                  </li>
+                  <li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">7.</span> <span class="nav-text">Conclusion</span></a></li>
+                  <li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">8.</span> <span class="nav-text">References</span></a></li>
+                </ol>
+              </div>
+            </div>
+            <!--/noindex-->
+            <div class="site-overview-wrap sidebar-panel">
+              <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <p class="site-author-name" itemprop="name">Matthew Corven</p>
+                <div class="site-description" itemprop="description">A blog about software development and its intersections with personal life, hobbies and interests.</div>
+              </div>
+              <div class="site-state-wrap animated">
+                <nav class="site-state">
+                  <div class="site-state-item site-state-posts">
+                    <a href="/archives/">
+                      <span class="site-state-item-count">1</span>
+                      <span class="site-state-item-name">posts</span>
+                    </a>
+                  </div>
+                  <div class="site-state-item site-state-categories">
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">categories</span>
+                  </div>
+                  <div class="site-state-item site-state-tags">
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">tags</span>
+                  </div>
+                </nav>
+              </div>
+              <div class="links-of-author animated">
+                <span class="links-of-author-item">
+                  <a href="https://github.com/matthewcorven" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;matthewcorven" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+                </span>
+                <span class="links-of-author-item">
+                  <a href="/rss.xml" title="Atom → &#x2F;rss.xml" rel="noopener me"><i class="fas fa-rss-square fa-fw"></i></a>
+                </span>
+                <span class="links-of-author-item">
+                  <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fas fa-rss fa-fw"></i></a>
+                </span>
+                <span class="links-of-author-item">
+                  <a href="/feed.json" title="JSON Feed → &#x2F;feed.json" rel="noopener me"><i class="fas fa-rss fa-fw"></i></a>
+                </span>
+              </div>
+              <div class="cc-license animated" itemprop="license">
+                <a href="https://creativecommons.org/licenses/by/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by.svg" alt="Creative Commons"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <div class="main-inner post posts-expand">
+      <div class="post-block">
+        <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+          <link itemprop="mainEntityOfPage" href="https://alt-tab.io/2023/05/06/ChatGPT%20Plugins%20-%20First%20Impressions/">
+          <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <meta itemprop="image" content="/images/avatar.gif">
+            <meta itemprop="name" content="Matthew Corven">
+          </span>
+          <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop="name" content="alt-tab.io">
+            <meta itemprop="description" content="A blog about software development and its intersections with personal life, hobbies and interests.">
+          </span>
+          <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+            <meta itemprop="name" content="ChatGPT Plugins - First Impressions | alt-tab.io">
+            <meta itemprop="description" content="">
+          </span>
+          <header class="post-header">
+            <h1 class="post-title" itemprop="name headline"> ChatGPT Plugins - First Impressions </h1>
+            <div class="post-meta-container">
+              <div class="post-meta">
+                <span class="post-meta-item">
+                  <span class="post-meta-item-icon">
+                    <i class="far fa-calendar"></i>
+                  </span>
+                  <span class="post-meta-item-text">Posted on</span>
+                  <time title="Created: 2023-05-06 00:00:00" itemprop="dateCreated datePublished" datetime="2023-05-06T00:00:00-04:00">2023-05-06</time>
+                </span>
+                <span class="post-meta-item">
+                  <span class="post-meta-item-icon">
+                    <i class="far fa-calendar-check"></i>
+                  </span>
+                  <span class="post-meta-item-text">Edited on</span>
+                  <time title="Modified: 2023-05-17 00:10:16" itemprop="dateModified" datetime="2023-05-17T00:10:16-04:00">2023-05-17</time>
+                </span>
+                <span class="post-meta-item">
+                  <span class="post-meta-item-icon">
+                    <i class="far fa-folder"></i>
+                  </span>
+                  <span class="post-meta-item-text">In</span>
+                  <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                    <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </header>
+          <div class="post-body" itemprop="articleBody">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center">
+              <iframe src="https://giphy.com/embed/NoHe3HpB1Mg8w" width="336" height="193" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+              <p><a target="_blank" rel="noopener" href="https://giphy.com/gifs/movie-up-NoHe3HpB1Mg8w">via GIPHY</a></p>
+            </div>
+            <h2 id="Shiny-New-Toy"><a href="#Shiny-New-Toy" class="headerlink" title="Shiny New Toy"></a>Shiny New Toy</h2>
+            <p><strong>Enter Stage Right:</strong> ChatGPT&#39;s initial plugin framework release promises to dazzle by connecting it to the internet. </p>
+            <blockquote>
+              <p>OpenAI plugins connect ChatGPT to third-party applications. These plugins enable ChatGPT to interact with APIs defined by developers, enhancing ChatGPT&#39;s capabilities and allowing it to perform a wide range of actions.</p>
+              <p><em>OpenAI</em>, <a target="_blank" rel="noopener" href="https://platform.openai.com/docs/plugins/introduction">Chat Plugins</a> [30 April 2023]</p>
+            </blockquote>
+            <h2 id="Availability"><a href="#Availability" class="headerlink" title="Availability"></a>Availability</h2>
+            <p>At the moment, plugin development is a <a target="_blank" rel="noopener" href="https://openai.com/waitlist/plugins"><em>Limited Alpha</em> behind a wait-list</a> and plugins can be shared with up to <a target="_blank" rel="noopener" href="https://platform.openai.com/docs/plugins/introduction/plugin-flow">15 fellow developers</a> (who also have access to plugins). It&#39;s early times for sure, but if the pace of ChatGPT over the past year is any indication we are sure to have a full marketplace of both free and paid plugins within weeks of my writing this blog post.</p>
+            <h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2>
+            <p>ChatGPT plugins are constructed with:</p>
+            <ol>
+              <li><strong>One or more REST API endpoints</strong> implemented in any language and&#x2F;or framework you prefer: Node.js, Deno, .NET Web API or Minimal API, Ruby, Rust, Go, Azure APIM, Azure Logic App, Azure Function, AWS Lamda or whatever else you fancy. (<a target="_blank" rel="noopener" href="https://www.ibm.com/docs/en/SS4SVW_3.0.0/backmatter/pdf.pdf">COBOL</a> diehards rejoice!)<ul>
+                  <li>OpenAI provides a <a target="_blank" rel="noopener" href="https://github.com/openai/plugins-quickstart">Python-based &quot;TODO API&quot; plugin</a> to get you started with local experimentation. It seems pretty useless until you realize that by tinkering with the inputs and outputs, even parameter names, you will begin to witness the power of ChatGPT&#39;s language processing capabilities; everything is context.</li>
+                </ul>
+              </li>
+              <li><strong>A manifest file</strong> (<code>yourdomain.com/.well-known/ai-plugin.json</code>) describing the plugin to ChatGPT. The contents and structure of this file are likely to change, but the most critical bits are:<ul>
+                  <li>Plugin name and description (for display in the ChatGPT UI)</li>
+                  <li>Plugin description (for the model to understand at a high level what your plugin does)</li>
+                  <li>A logo URL</li>
+                  <li>Your contact and legal information</li>
+                  <li>Authentication mechanism, if applicable to your API</li>
+                </ul>
+              </li>
+              <li><strong>An <a target="_blank" rel="noopener" href="https://swagger.io/docs/specification/basic-structure/">OpenAPI specification</a> (YAML) file</strong>. ChatGPT&#39;s language processing is a &quot;natural&quot; 🤣 at parsing this contract to understand what each API endpoint can do (descriptions, route methods) as well as how the input &amp; output models are shaped (component schemas). O<strong>p</strong>enAPI isn&#39;t to be confused with Open<strong>AI</strong>; this specification predates OpenAI and is used for all sorts of things unrelated to AI. It&#39;s a well-established standard that is used by many API providers, including Microsoft, Google, and Amazon. This alone is the most exciting&#x2F;terrifying part - public REST APIs around the globe are already in a position to offer knowledge and actions to ChatGPT, merely by having an OpenAPI specification available. What&#39;s more, the same specification supports describing that most common authentication patterns, so you can offer ChatGPT users the ability to authenticate with your API and perform actions on their behalf.</li>
+            </ol>
+            <h2 id="Plugin-Flow-Production"><a href="#Plugin-Flow-Production" class="headerlink" title="Plugin Flow (Production)"></a>Plugin Flow (Production)</h2>
+            <pre class="mermaid">sequenceDiagram
+  autonumber
+  actor User
+  participant Client Browser
+  participant OpenAI Servers
+  participant Plugin Provider API
+  User->>Client Browser: Select Plugin
+  Client Browser->>OpenAI Servers: Register Plugin with User's ChatGPT profile
+  OpenAI Servers-->>Client Browser: Inject compact plugin context <br>(description & endpoints)<br>into hidden prompt message
+  Client Browser-->>User: Render UI
+  User->>Client Browser: Prompt
+  activate Client Browser
+  Client Browser->>OpenAI Servers: User Prompt + Plugin context
+  activate OpenAI Servers
+  OpenAI Servers-->>OpenAI Servers: AI Reasoning
+  OpenAI Servers->>Plugin Provider API: Perform commands and/or queries<br>against Plugin API
+  activate Plugin Provider API
+  Plugin Provider API-->>Plugin Provider API: Plugin logic
+  Plugin Provider API-->>OpenAI Servers: Text, Links or Markdown 
+  deactivate Plugin Provider API
+  OpenAI Servers-->>OpenAI Servers: Incorporate Plugin API results into response
+  OpenAI Servers-->>Client Browser: Text & Meta
+  Client Browser-->>User: Render response
+  deactivate OpenAI Servers
+  deactivate Client Browser</pre>
+            <h2 id="Plugin-Flow-Local-Development"><a href="#Plugin-Flow-Local-Development" class="headerlink" title="Plugin Flow (Local Development)"></a>Plugin Flow (Local Development)</h2>
+            <p>To enable local development of a plugin, ChatGPT turns the tables and calls your API from the browser. This changes the flow dramatically:</p>
+            <pre class="mermaid">sequenceDiagram
+  autonumber
+  participant Plugin Provider API
+  actor User
+  participant Client Browser
+  participant OpenAI Servers
+  User->>Client Browser: Select Plugin
+  Client Browser->>OpenAI Servers: Register Plugin with User's ChatGPT profile
+  OpenAI Servers-->>Client Browser: Inject compact plugin context <br>(description & endpoints)<br>into hidden prompt message
+  Client Browser-->>User: Render UI
+  User->>Client Browser: Prompt
+  activate Client Browser
+  Client Browser->>OpenAI Servers: User Prompt + Plugin context
+  activate OpenAI Servers
+  OpenAI Servers-->>OpenAI Servers: AI Reasoning
+  OpenAI Servers-->>Client Browser: Request Plugin API call
+  Client Browser->>Plugin Provider API: Perform commands and/or queries<br>against Plugin API
+  activate Plugin Provider API
+  Plugin Provider API-->>Plugin Provider API: Plugin logic
+  Plugin Provider API-->>Client Browser: Text, Links or Markdown 
+  deactivate Plugin Provider API
+  Client Browser-->>OpenAI Servers: Relay response to Server
+  OpenAI Servers-->>OpenAI Servers: Incorporate Plugin API results into response
+  OpenAI Servers-->>Client Browser: Text & Meta
+  Client Browser-->>User: Render response
+  deactivate OpenAI Servers
+  deactivate Client Browser</pre>
+            <h2 id="Local-quot-Quickstart-quot-Demo"><a href="#Local-quot-Quickstart-quot-Demo" class="headerlink" title="Local &quot;Quickstart&quot; Demo"></a>Local &quot;Quickstart&quot; Demo</h2>
+            <p>OpenAI provides a sample TODO API on GitHub so that you can clone or download, and try it out with ChatGPT in a few minutes time. It&#39;s implemented in Python, so if you don&#39;t already have a local Python development environment setup you&#39;ll need to do that. </p>
+            <p>There are numerous ways of getting Python running locally. For beginners, the article below walks you through setting up Python 3 on your operating system of choice:</p>
+            <p><a target="_blank" rel="noopener" href="https://realpython.com/installing-python/">Python 3 Installation &amp; Setup Guide</a></p>
+            <h3 id="Running-the-Plugin-API-Locally"><a href="#Running-the-Plugin-API-Locally" class="headerlink" title="Running the Plugin (API) Locally"></a>Running the Plugin (API) Locally</h3>
+            <p>Once you have Python set up, execute the TODO API with <code>python main.py</code> and you&#39;ll see the server spin up and await calls from ChatGPT. The output should look something like this:</p>
+            <figure class="highlight bash">
+              <table>
+                <tr>
+                  <td class="gutter">
+                    <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre>
+                  </td>
+                  <td class="code">
+                    <pre><span class="line">&gt; python main.py</span><br><span class="line"></span><br><span class="line"> * Serving Quart app <span class="string">&#x27;main&#x27;</span></span><br><span class="line"> * Environment: production</span><br><span class="line"> * Please use an ASGI server (e.g. Hypercorn) directly <span class="keyword">in</span> production</span><br><span class="line"> * Debug mode: True</span><br><span class="line"> * Running on http://0.0.0.0:5003 (CTRL + C to quit)</span><br><span class="line">[2023-04-30 17:56:58 -0400] [4776] [INFO] Running on http://0.0.0.0:5003 (CTRL + C to quit)</span><br></pre>
+                  </td>
+                </tr>
+              </table>
+            </figure>
+            <h3 id="Connect-ChatGPT"><a href="#Connect-ChatGPT" class="headerlink" title="Connect ChatGPT"></a>Connect ChatGPT</h3>
+            <p>Getting ChatGPT connected to the local TODO API is pretty straightforward. In a nutshell:</p>
+            <ol>
+              <li>From any ChatGPT chat, change your Model to <strong>Plugins</strong> and then use the dropdown to navigate to the <strong>Plugin Store</strong></li>
+              <li>Click <strong>Develop your own plugin</strong></li>
+              <li>Supply the URL with port number (such as <code>http://localhost:5003</code>)</li>
+            </ol>
+            <p>Once connected properly, you&#39;ll see the logo of your plugin displayed in the &quot;Plugins&quot; dropdown.</p>
+            <h3 id="Test-Drive"><a href="#Test-Drive" class="headerlink" title="Test Drive!"></a>Test Drive!</h3>
+            <p>By installing your plugin in the previous step, you&#39;re providing ChatGPT with the manifest and OpenAPI specification, both of which inform the model of what your plugin API can do and how to interact. </p>
+            <p>Let&#39;s get the show on the road. I&#39;d like to know what&#39;s on my TODO list (it should be empty at the moment), and I&#39;ll add some items afterward:</p>
+            <p><img src="/2023-05-15T224510.png" alt="2023-05-15T224510"></p>
+            <p>Okay that&#39;s neat. What happens if I try to add more than one item at a time?</p>
+            <p><img src="/2023-05-15T224540.png" alt="2023-05-15T224540"></p>
+            <p>I&#39;m mildly impressed that this prompt did all these things, but I&#39;m less impressed that it required 7 API calls to add 7 items. Why on earth didn&#39;t ChatGPT just send them all in one request? Because our API doesn&#39;t support that in the request model, and ChatGPT is being a good consumer of the API.</p>
+            <p>We can refactor the Python code pretty quickly to support this. We&#39;ll also need to change the request model to accept a list of items, and then we&#39;ll need to change the code to iterate over the list and add each item individually. We&#39;ll also need to change the response model to return a list of items. Let&#39;s do it...</p>
+            <figure class="highlight python">
+              <table>
+                <tr>
+                  <td class="gutter">
+                    <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre>
+                  </td>
+                  <td class="code">
+                    <pre><span class="line"><span class="comment"># main.py</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="meta">@app.post(<span class="params"><span class="string">&quot;/todos/&lt;string:username&gt;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">add_todo</span>(<span class="params">username</span>):</span><br><span class="line">    request = <span class="keyword">await</span> quart.request.get_json(force=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> username <span class="keyword">not</span> <span class="keyword">in</span> _TODOS:</span><br><span class="line">        _TODOS[username] = []</span><br><span class="line"></span><br><span class="line">    _TODOS[username].append(request[<span class="string">&quot;todo&quot;</span>])</span><br><span class="line">    <span class="keyword">return</span> quart.Response(response=<span class="string">&#x27;OK&#x27;</span>, status=<span class="number">200</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ... becomes:</span></span><br><span class="line"><span class="meta">@app.post(<span class="params"><span class="string">&quot;/todos/&lt;string:username&gt;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">add_todos</span>(<span class="params">username</span>):</span><br><span class="line">    request = <span class="keyword">await</span> quart.request.get_json(force=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> username <span class="keyword">not</span> <span class="keyword">in</span> _TODOS:</span><br><span class="line">        _TODOS[username] = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;todos&#x27;</span> <span class="keyword">in</span> request <span class="keyword">and</span> <span class="built_in">isinstance</span>(request[<span class="string">&#x27;todos&#x27;</span>], <span class="built_in">list</span>):</span><br><span class="line">      todos = request[<span class="string">&#x27;todos&#x27;</span>]; <span class="comment"># extract the list of todos</span></span><br><span class="line">      <span class="keyword">for</span> todo <span class="keyword">in</span> todos:</span><br><span class="line">        <span class="keyword">if</span> todo <span class="keyword">not</span> <span class="keyword">in</span> _TODOS[username]: <span class="comment"># don&#x27;t add duplicates</span></span><br><span class="line">          _TODOS[username].append(todo)</span><br><span class="line">      <span class="keyword">return</span> quart.Response(response=<span class="string">&#x27;OK&#x27;</span>, status=<span class="number">200</span>)</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      <span class="keyword">return</span> quart.Response(response=<span class="string">&#x27;Bad Request, todos missing&#x27;</span>, status=<span class="number">400</span>)</span><br></pre>
+                  </td>
+                </tr>
+              </table>
+            </figure>
+            <figure class="highlight yaml">
+              <table>
+                <tr>
+                  <td class="gutter">
+                    <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre>
+                  </td>
+                  <td class="code">
+                    <pre><span class="line"><span class="comment"># openapi.yaml</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="attr">components:</span></span><br><span class="line">  <span class="attr">schemas:</span></span><br><span class="line">    <span class="attr">getTodosResponse:</span></span><br><span class="line">      <span class="comment"># ...</span></span><br><span class="line">    <span class="attr">addTodoRequest:</span></span><br><span class="line">      <span class="attr">type:</span> <span class="string">object</span></span><br><span class="line">      <span class="attr">required:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">todo</span></span><br><span class="line">      <span class="attr">properties:</span></span><br><span class="line">        <span class="attr">todo:</span></span><br><span class="line">          <span class="attr">type:</span> <span class="string">string</span></span><br><span class="line">          <span class="attr">description:</span> <span class="string">The</span> <span class="string">todo</span> <span class="string">to</span> <span class="string">add</span> <span class="string">to</span> <span class="string">the</span> <span class="string">list.</span></span><br><span class="line">          <span class="attr">required:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ... becomes:</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">addTodoRequest:</span></span><br><span class="line">      <span class="attr">type:</span> <span class="string">object</span></span><br><span class="line">      <span class="attr">required:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">todos</span></span><br><span class="line">      <span class="attr">properties:</span></span><br><span class="line">        <span class="attr">todos:</span></span><br><span class="line">          <span class="attr">type:</span> <span class="string">array</span></span><br><span class="line">          <span class="attr">items:</span></span><br><span class="line">            <span class="attr">type:</span> <span class="string">string</span></span><br><span class="line">          <span class="attr">description:</span> <span class="string">The</span> <span class="string">todos</span> <span class="string">to</span> <span class="string">add</span> <span class="string">to</span> <span class="string">the</span> <span class="string">list.</span></span><br><span class="line">          <span class="attr">required:</span> <span class="literal">true</span></span><br></pre>
+                  </td>
+                </tr>
+              </table>
+            </figure>
+            <p>Let&#39;s summarize the changes we made:</p>
+            <ul>
+              <li>We changed the code to iterate over the list of todos</li>
+              <li>We tweaked the code to disallow duplicate todos in the datastore (unplanned changed, but a good one). Also unplanned, we added a check to make sure the request contained a list of todos.</li>
+              <li>We changed the request model to accept a list of todos</li>
+              <li>We updated the specification&#39;s request model definition <em>and description</em></li>
+            </ul>
+            <p>And now we can test it out:</p>
+            <p><img src="/2023-05-15T224602.png" alt="2023-05-15T224602"></p>
+            <p>Only one request. Nice! Let&#39;s flex our new-found muscles and add support for deleting multiple todos. Our changes will be very similar:</p>
+            <figure class="highlight python">
+              <table>
+                <tr>
+                  <td class="gutter">
+                    <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre>
+                  </td>
+                  <td class="code">
+                    <pre><span class="line"><span class="comment"># main.py</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="meta">@app.post(<span class="params"><span class="string">&quot;/todos/&lt;string:username&gt;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">add_todo</span>(<span class="params">username</span>):</span><br><span class="line">    request = <span class="keyword">await</span> quart.request.get_json(force=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> username <span class="keyword">not</span> <span class="keyword">in</span> _TODOS:</span><br><span class="line">        _TODOS[username] = []</span><br><span class="line">    _TODOS[username].append(request[<span class="string">&quot;todo&quot;</span>])</span><br><span class="line">    <span class="keyword">return</span> quart.Response(response=<span class="string">&#x27;OK&#x27;</span>, status=<span class="number">200</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ... becomes:</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.delete(<span class="params"><span class="string">&quot;/todos/&lt;string:username&gt;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">delete_todos</span>(<span class="params">username</span>):</span><br><span class="line">    request = <span class="keyword">await</span> quart.request.get_json(force=<span class="literal">True</span>)</span><br><span class="line">    <span class="comment"># fail silently, it&#x27;s a simple plugin</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;todos_idx&#x27;</span> <span class="keyword">in</span> request <span class="keyword">and</span> <span class="built_in">isinstance</span>(request[<span class="string">&#x27;todos_idx&#x27;</span>], <span class="built_in">list</span>):</span><br><span class="line">        todos_idx = request[<span class="string">&quot;todos_idx&quot;</span>]</span><br><span class="line">        <span class="keyword">for</span> todo_idx <span class="keyword">in</span> <span class="built_in">sorted</span>(todos_idx, reverse=<span class="literal">True</span>):    </span><br><span class="line">            <span class="keyword">if</span> <span class="number">0</span> &lt;= todo_idx &lt; <span class="built_in">len</span>(_TODOS[username]):</span><br><span class="line">                _TODOS[username].pop(todo_idx)</span><br><span class="line">        <span class="keyword">return</span> quart.Response(response=<span class="string">&#x27;OK&#x27;</span>, status=<span class="number">200</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> quart.Response(response=<span class="string">&#x27;Bad Request, todos_idx missing&#x27;</span>, status=<span class="number">400</span>)</span><br></pre>
+                  </td>
+                </tr>
+              </table>
+            </figure>
+            <figure class="highlight yaml">
+              <table>
+                <tr>
+                  <td class="gutter">
+                    <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre>
+                  </td>
+                  <td class="code">
+                    <pre><span class="line"><span class="comment"># openapi.yaml</span></span><br><span class="line">    <span class="attr">delete:</span></span><br><span class="line">      <span class="attr">operationId:</span> <span class="string">deleteTodo</span></span><br><span class="line">      <span class="attr">summary:</span> <span class="string">Delete</span> <span class="string">a</span> <span class="string">todo</span> <span class="string">from</span> <span class="string">the</span> <span class="string">list</span></span><br><span class="line">      <span class="comment"># ...</span></span><br><span class="line">      <span class="attr">requestBody:</span></span><br><span class="line">        <span class="attr">required:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">content:</span></span><br><span class="line">          <span class="attr">application/json:</span></span><br><span class="line">            <span class="attr">schema:</span></span><br><span class="line">              <span class="string">$ref:</span> <span class="string">&#x27;#/components/schemas/deleteTodoRequest&#x27;</span></span><br><span class="line">      <span class="comment"># ...</span></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line">    <span class="attr">delete:</span></span><br><span class="line">      <span class="attr">operationId:</span> <span class="string">deleteTodos</span></span><br><span class="line">      <span class="attr">summary:</span> <span class="string">Delete</span> <span class="string">todos</span> <span class="string">from</span> <span class="string">the</span> <span class="string">list</span></span><br><span class="line">      <span class="comment"># ...</span></span><br><span class="line">      <span class="attr">requestBody:</span></span><br><span class="line">        <span class="attr">required:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">content:</span></span><br><span class="line">          <span class="attr">application/json:</span></span><br><span class="line">            <span class="attr">schema:</span></span><br><span class="line">              <span class="string">$ref:</span> <span class="string">&#x27;#/components/schemas/deleteTodosRequest&#x27;</span></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="attr">components:</span></span><br><span class="line">  <span class="attr">schemas:</span></span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">    <span class="attr">deleteTodoRequest:</span></span><br><span class="line">      <span class="attr">type:</span> <span class="string">object</span></span><br><span class="line">      <span class="attr">required:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">todo_idx</span></span><br><span class="line">      <span class="attr">properties:</span></span><br><span class="line">        <span class="attr">todo_idx:</span></span><br><span class="line">          <span class="attr">type:</span> <span class="string">integer</span></span><br><span class="line">          <span class="attr">description:</span> <span class="string">The</span> <span class="string">index</span> <span class="string">of</span> <span class="string">the</span> <span class="string">todo</span> <span class="string">to</span> <span class="string">delete.</span></span><br><span class="line">          <span class="attr">required:</span> <span class="literal">true</span></span><br><span class="line"><span class="comment"># ... becomes:</span></span><br><span class="line">    <span class="attr">deleteTodosRequest:</span></span><br><span class="line">      <span class="attr">type:</span> <span class="string">object</span></span><br><span class="line">      <span class="attr">required:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">todos_idx</span></span><br><span class="line">      <span class="attr">properties:</span></span><br><span class="line">        <span class="attr">todos_idx:</span></span><br><span class="line">          <span class="attr">type:</span> <span class="string">array</span></span><br><span class="line">          <span class="attr">items:</span></span><br><span class="line">            <span class="attr">type:</span> <span class="string">integer</span></span><br><span class="line">          <span class="attr">description:</span> <span class="string">The</span> <span class="string">indexes</span> <span class="string">of</span> <span class="string">the</span> <span class="string">todos</span> <span class="string">to</span> <span class="string">delete.</span></span><br><span class="line">          <span class="attr">required:</span> <span class="literal">true</span></span><br></pre>
+                  </td>
+                </tr>
+              </table>
+            </figure>
+            <p>Let&#39;s summarize the changes we made:</p>
+            <ul>
+              <li>We changed the code to iterate over the list of todo indexes</li>
+              <li>We changed the request model to accept a list of todo indexes</li>
+              <li>We updated the specification&#39;s response model definition <em>and description</em></li>
+            </ul>
+            <p>Let&#39;s clear out our TODO list all at once:</p>
+            <p><img src="/2023-05-15T224619.png" alt="2023-05-15T224619"></p>
+            <p>I&#39;m pretty forgetful. For instance, I&#39;ve been known to duplicate duplicate items to my grocery shopping list. What would be the outcome with this ChatGPT TODO plugin?</p>
+            <p><img src="/2023-05-15T224628.png" alt="2023-05-15T224628"></p>
+            <p>Ugh oh. Our plugin code disregards the duplicate entry, but as far as ChatGPT is concerned all is well up until the point that it loads again from the plugin and compares to its own internal list. </p>
+            <p>The solution is for the plugin to respond to duplicate entry attempts with an informative message for ChatGPT to take into its context:</p>
+            <p><img src="/2023-05-15T224708.png" alt="2023-05-15T224708"></p>
+            <p>ChatGPT understands that <code>dentist</code> can&#39;t be added twice, but I&#39;m not happy with it&#39;s mischaracterization &quot;...was already on your list, so I didn&#39;t add it again.&quot; Lies! ChatGPT did indeed try to add <code>dentist</code> a second time, and was merely prohibited. </p>
+            <p>I can resolve this by informing ChatGPT duplicates should not be added. This might however result in ChatGPT querying all TODOs before each addition, causing a lot of unnecessary chatter. Instead I&#39;ll tweak the plugin again, this time instruct ChatGPT to update its internal list when conflicts such as this occur:</p>
+            <p><img src="/2023-05-15T224645.png" alt="2023-05-15T224645"></p>
+            <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2>
+            <p>This is fun tech, for sure. What will I do with it? Hard to say - I&#39;m just trying to keep up like everyone else. I&#39;m not sure if I&#39;ll be able to make a living off of it, but I&#39;m sure I&#39;ll have fun trying. I hope you do too!</p>
+            <div class="references">
+              <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>
+              <ol>
+                <li><a target="_blank" rel="noopener" href="https://platform.openai.com/docs/introduction/overview"><strong>OpenAI Platform</strong> docs site</a> is a must-read on all matters of interacting with OpenAI&#39;s API.<ul>
+                    <li><a target="_blank" rel="noopener" href="https://platform.openai.com/docs/plugins/examples"><strong>Several more plugin examples</strong></a> with source code. Check here for use of OAuth and other authentication methods, and giving ChatGPT more memory of conversations as well as semantic search (aka &quot;question answering&quot;).</li>
+                    <li><strong>Usage Policies</strong> includes a <a target="_blank" rel="noopener" href="https://openai.com/policies/usage-policies#plugin-policies">section on plugins</a>. It&#39;s not mentioned in the enclosed changelog, so either it&#39;s been there all along or it&#39;s a new addition without notice.</li>
+                  </ul>
+                </li>
+                <li><a target="_blank" rel="noopener" href="https://community.openai.com/t/context-length-vs-max-token-vs-maximum-length/125585">OpenAI Community Forum: &quot;Context length VS Max token VS Maximum length&quot;</a></li>
+              </ol>
+            </div>
+          </div>
+          <footer class="post-footer">
+            <div class="reward-container">
+              <div>Buy me a coffee</div>
+              <button> Donate </button>
+              <div class="post-reward">
+              </div>
+            </div>
+            <div class="post-tags">
+              <a href="/tags/ChatGPT/" rel="tag"># ChatGPT</a>
+              <a href="/tags/OpenAI/" rel="tag"># OpenAI</a>
+              <a href="/tags/AI/" rel="tag"># AI</a>
+              <a href="/tags/NLP/" rel="tag"># NLP</a>
+              <a href="/tags/GPT-4/" rel="tag"># GPT-4</a>
+              <a href="/tags/Plugins/" rel="tag"># Plugins</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
+            </div>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="copyright"> &copy; <span itemprop="copyrightYear">2023</span>
+        <span class="with-love">
+          <i class="fa fa-heart"></i>
+        </span>
+        <span class="author" itemprop="copyrightHolder">Matthew Corven</span>
+      </div>
+      <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+      </div>
+    </div>
+  </footer>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <a href="https://github.com/matthewcorven" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true">
+      <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+      <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+      <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg></a>
+  <noscript>
+    <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+  </noscript>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="/js/comments.js"></script>
+  <script src="/js/utils.js"></script>
+  <script src="/js/motion.js"></script>
+  <script src="/js/next-boot.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+  <script src="/js/third-party/search/local-search.js"></script>
+  <script class="next-config" data-name="mermaid" type="application/json">
+    {
+      "enable": true,
+      "theme":
+      {
+        "light": "light",
+        "dark": "default"
+      },
+      "version": "7.1.2",
+      "options":
+      {
+        "external_link": false
+      },
+      "js":
+      {
+        "url": "https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js",
+        "integrity": "sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="
+      }
+    }
+
+  </script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+  <script>
+    const feedElInnerHTML = `
+                    <svg width="13" height="13" viewBox="-10 -5 1034 1034" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                        <path fill="#555555" d="M854 175q-27 0 -46 19t-19 45.5t18.5 45t45 18.5t45.5 -18.5t19 -45t-18.5 -45.5t-44.5 -19zM205 192l-34 34q-83 83 -88 154t68 144l82 82q45 46 48.5 78t-33.5 69v0q-16 19 -15.5 44.5t18.5 43.5t43.5 18.5t44.5 -15.5l1 1q25 -25 47 -32t45.5 4.5t53.5 41.5l95 96 q75 74 147.5 70t155.5 -87l33 -34l-71 -72l-18 18q-47 47 -84 47.5t-82 -44.5l-112 -112q-86 -86 -169 -17l-11 -11q35 -42 31.5 -83t-45.5 -82l-100 -101q-31 -31 -40.5 -56.5t1 -51.5t42.5 -59l17 -17zM703 326q-28 0 -46.5 19t-18.5 45.5t18.5 45.5t45 19t45.5 -19 t19 -45.5t-18.5 -45t-44.5 -19.5zM551 477q-27 0 -46 19t-19 45.5t19 45.5t45.5 19t45.5 -19t19 -45.5t-19 -45t-45 -19.5z"></path>
+                    </svg>
+                    `;
+
+    function getFeedElement()
+    {
+      let feedElement = document.querySelector('a[href="/feed.json"]');
+      if (feedElement)
+      {
+        return feedElement;
+      }
+      return null;
+    }
+    document.addEventListener("DOMContentLoaded", function ()
+    {
+      let intervalId = setInterval(function ()
+      {
+        let anchorElement = getFeedElement();
+        if (anchorElement)
+        {
+          clearInterval(intervalId);
+          anchorElement.innerHTML = feedElInnerHTML;
+        }
+      }, 1000);
+    });
+
+  </script>
+</body>
+
+</html>
