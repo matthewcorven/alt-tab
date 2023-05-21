@@ -12,14 +12,14 @@
     <category term="Plugins" />
     <category term="Python" />
     <entry>
-        <id>https://alt-tab.io/2023/05/06/ChatGPT%20Plugins%20-%20First%20Impressions/</id>
+        <id>https://alt-tab.io/2023/05/06/chatgpt-plugins--first-impressions/</id>
         <title>ChatGPT Plugins - First Impressions</title>
-        <link rel="alternate" href="https://alt-tab.io/2023/05/06/ChatGPT%20Plugins%20-%20First%20Impressions/"/>
+        <link rel="alternate" href="https://alt-tab.io/2023/05/06/chatgpt-plugins--first-impressions/"/>
         <content type="html">&lt;div style=&#34;display: flex; flex-direction: column; align-items: center; justify-content: center&#34;&gt;
   &lt;iframe src=&#34;https://giphy.com/embed/NoHe3HpB1Mg8w&#34; width=&#34;336&#34; height=&#34;193&#34; frameBorder=&#34;0&#34; class=&#34;giphy-embed&#34; allowFullScreen&gt;&lt;/iframe&gt;&lt;p&gt;&lt;a href=&#34;https://giphy.com/gifs/movie-up-NoHe3HpB1Mg8w&#34;&gt;via GIPHY&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&#34;Shiny-New-Toy&#34;&gt;&lt;a href=&#34;#Shiny-New-Toy&#34; class=&#34;headerlink&#34; title=&#34;Shiny New Toy&#34;&gt;&lt;/a&gt;Shiny New Toy&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Enter Stage Right:&lt;/strong&gt; ChatGPT&amp;#39;s initial plugin framework release promises to dazzle by connecting it to the internet.  &lt;/p&gt;
+&lt;h2 id=&#34;Shiny-New-Toy&#34;&gt;&lt;a href=&#34;#Shiny-New-Toy&#34; class=&#34;headerlink&#34; title=&#34;Shiny New Toy&#34;&gt;&lt;/a&gt;Shiny New Toy&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Enter Stage Right:&lt;/strong&gt; ChatGPT&amp;#39;s initial plugin framework release promises to dazzle by connecting it to the internet via REST APIs.  This is a big deal, and I&amp;#39;m excited to see where it goes.  I&amp;#39;ve been tinkering with the plugin framework for a few days now, and I&amp;#39;m impressed with the simplicity of the implementation and the power of the results.  I&amp;#39;m also impressed with the speed at which OpenAI is iterating on the framework, and I&amp;#39;m excited to see what the future holds.  I&amp;#39;m not sure if I&amp;#39;m more excited about the possibilities for ChatGPT or the possibilities for the plugin framework itself.  I&amp;#39;m sure both will be amazing.  &lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;OpenAI plugins connect ChatGPT to third-party applications. These plugins enable ChatGPT to interact with APIs defined by developers, enhancing ChatGPT&amp;#39;s capabilities and allowing it to perform a wide range of actions.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;OpenAI&lt;/em&gt;, &lt;a href=&#34;https://platform.openai.com/docs/plugins/introduction&#34;&gt;Chat Plugins&lt;/a&gt; [30 April 2023]&lt;/p&gt;
@@ -27,8 +27,8 @@
 &lt;h2 id=&#34;Availability&#34;&gt;&lt;a href=&#34;#Availability&#34; class=&#34;headerlink&#34; title=&#34;Availability&#34;&gt;&lt;/a&gt;Availability&lt;/h2&gt;&lt;p&gt;At the moment, plugin development is a &lt;a href=&#34;https://openai.com/waitlist/plugins&#34;&gt;&lt;em&gt;Limited Alpha&lt;/em&gt; behind a wait-list&lt;/a&gt; and plugins can be shared with up to &lt;a href=&#34;https://platform.openai.com/docs/plugins/introduction/plugin-flow&#34;&gt;15 fellow developers&lt;/a&gt; (who also have access to plugins).  It&amp;#39;s early times for sure, but if the pace of ChatGPT over the past year is any indication we are sure to have a full marketplace of both free and paid plugins within weeks of my writing this blog post.&lt;/p&gt;
 &lt;h2 id=&#34;Architecture&#34;&gt;&lt;a href=&#34;#Architecture&#34; class=&#34;headerlink&#34; title=&#34;Architecture&#34;&gt;&lt;/a&gt;Architecture&lt;/h2&gt;&lt;p&gt;ChatGPT plugins are constructed with:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;One or more REST API endpoints&lt;/strong&gt; implemented in any language and&amp;#x2F;or framework you prefer: Node.js, Deno, .NET Web API or Minimal API, Ruby, Rust, Go, Azure APIM, Azure Logic App, Azure Function, AWS Lamda or whatever else you fancy. (&lt;a href=&#34;https://www.ibm.com/docs/en/SS4SVW_3.0.0/backmatter/pdf.pdf&#34;&gt;COBOL&lt;/a&gt; diehards rejoice!)&lt;ul&gt;
-&lt;li&gt;OpenAI provides a &lt;a href=&#34;https://github.com/openai/plugins-quickstart&#34;&gt;Python-based &amp;quot;TODO API&amp;quot; plugin&lt;/a&gt; to get you started with local experimentation.  It seems pretty useless until you realize that by tinkering with the inputs and outputs, even parameter names, you will begin to witness the power of ChatGPT&amp;#39;s language processing capabilities; everything is context.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;One or more REST API endpoints&lt;/strong&gt; implemented in any language and&amp;#x2F;or framework you prefer: Node.js, Deno, ASP .NET Controllers or Minimal API, Azure Functions, Ruby on Rails, Rust, Go, &lt;a href=&#34;https://docs.bip.sh/functions/get-started&#34;&gt;Bip Functions&lt;/a&gt;, AWS Lamda, &lt;a href=&#34;https://reference.wolfram.com/language/workflow/DeployAWebAPI.html&#34;&gt;Wolfram&lt;/a&gt; or whatever else you fancy (&lt;a href=&#34;https://www.ibm.com/docs/en/SS4SVW_3.0.0/backmatter/pdf.pdf&#34;&gt;COBOL&lt;/a&gt; diehards rejoice!).  Coded APIs aren&amp;#39;t the only option either; you can just a easily use a &lt;a href=&#34;https://www.gartner.com/en/information-technology/glossary/low-code-no-code-development-platform-lcncdp&#34;&gt;low-code&amp;#x2F;no-code&lt;/a&gt; platform like &lt;a href=&#34;https://powerapps.microsoft.com/en-us/&#34;&gt;Power Apps&lt;/a&gt;, &lt;a href=&#34;https://flow.microsoft.com/en-us/&#34;&gt;Power Automate&lt;/a&gt;, Azure APIM, Azure Logic App, &lt;a href=&#34;https://learn.microsoft.com/en-us/azure/data-api-builder/overview-to-data-api-builder&#34;&gt;Data API Builder&lt;/a&gt;, or &lt;a href=&#34;https://www.outsystems.com/blog/posts/low-code-api/&#34;&gt;OutSystems&lt;/a&gt;.  The only requirement is that your API is accessible via the internet.&lt;ul&gt;
+&lt;li&gt;OpenAI provides a &lt;a href=&#34;https://github.com/openai/plugins-quickstart&#34;&gt;Python-based &amp;quot;TODO API&amp;quot; plugin&lt;/a&gt; to get you started with local experimentation.  It seems pretty useless until you realize that by tinkering with the inputs and outputs, descriptions, even parameter names, you will begin to witness the power of ChatGPT&amp;#39;s language processing capabilities.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;A manifest file&lt;/strong&gt; (&lt;code&gt;yourdomain.com/.well-known/ai-plugin.json&lt;/code&gt;) describing the plugin to ChatGPT.  The contents and structure of this file are likely to change, but the most critical bits are:&lt;ul&gt;
@@ -47,7 +47,7 @@
   participant Client Browser
   participant OpenAI Servers
   participant Plugin Provider API
-  User-&gt;&gt;Client Browser: Select Plugin
+  User-&gt;&gt;Client Browser: New ChatGPT Chat
   Client Browser-&gt;&gt;OpenAI Servers: Register Plugin with User&#39;s ChatGPT profile
   OpenAI Servers--&gt;&gt;Client Browser: Inject compact plugin context &lt;br&gt;(description &amp; endpoints)&lt;br&gt;into hidden prompt message
   Client Browser--&gt;&gt;User: Render UI
@@ -74,7 +74,7 @@
   actor User
   participant Client Browser
   participant OpenAI Servers
-  User-&gt;&gt;Client Browser: Select Plugin
+  User-&gt;&gt;Client Browser: New ChatGPT Chat
   Client Browser-&gt;&gt;OpenAI Servers: Register Plugin with User&#39;s ChatGPT profile
   OpenAI Servers--&gt;&gt;Client Browser: Inject compact plugin context &lt;br&gt;(description &amp; endpoints)&lt;br&gt;into hidden prompt message
   Client Browser--&gt;&gt;User: Render UI
@@ -129,7 +129,7 @@
 &lt;p&gt;And now we can test it out:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/2023-05-15T224602.png&#34; alt=&#34;2023-05-15T224602&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Only one request.  Nice!  Let&amp;#39;s flex our new-found muscles and add support for deleting multiple todos.  Our changes will be very similar:&lt;/p&gt;
-&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# main.py&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;@app.post(&lt;span class=&#34;params&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;/todos/&amp;lt;string:username&amp;gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;async&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;add_todo&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;username&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    request = &lt;span class=&#34;keyword&#34;&gt;await&lt;/span&gt; quart.request.get_json(force=&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; username &lt;span class=&#34;keyword&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; _TODOS:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        _TODOS[username] = []&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    _TODOS[username].append(request[&lt;span class=&#34;string&#34;&gt;&amp;quot;todo&amp;quot;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; quart.Response(response=&lt;span class=&#34;string&#34;&gt;&amp;#x27;OK&amp;#x27;&lt;/span&gt;, status=&lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# ... becomes:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;@app.delete(&lt;span class=&#34;params&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;/todos/&amp;lt;string:username&amp;gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;async&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;delete_todos&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;username&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    request = &lt;span class=&#34;keyword&#34;&gt;await&lt;/span&gt; quart.request.get_json(force=&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;# fail silently, it&amp;#x27;s a simple plugin&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;todos_idx&amp;#x27;&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; request &lt;span class=&#34;keyword&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;isinstance&lt;/span&gt;(request[&lt;span class=&#34;string&#34;&gt;&amp;#x27;todos_idx&amp;#x27;&lt;/span&gt;], &lt;span class=&#34;built_in&#34;&gt;list&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        todos_idx = request[&lt;span class=&#34;string&#34;&gt;&amp;quot;todos_idx&amp;quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; todo_idx &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;sorted&lt;/span&gt;(todos_idx, reverse=&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;):    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt; &amp;lt;= todo_idx &amp;lt; &lt;span class=&#34;built_in&#34;&gt;len&lt;/span&gt;(_TODOS[username]):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                _TODOS[username].pop(todo_idx)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; quart.Response(response=&lt;span class=&#34;string&#34;&gt;&amp;#x27;OK&amp;#x27;&lt;/span&gt;, status=&lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; quart.Response(response=&lt;span class=&#34;string&#34;&gt;&amp;#x27;Bad Request, todos_idx missing&amp;#x27;&lt;/span&gt;, status=&lt;span class=&#34;number&#34;&gt;400&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# main.py&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;@app.delete(&lt;span class=&#34;params&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;/todos/&amp;lt;string:username&amp;gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;async&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;delete_todo&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;username&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    request = &lt;span class=&#34;keyword&#34;&gt;await&lt;/span&gt; quart.request.get_json(force=&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    todo_idx = request[&lt;span class=&#34;string&#34;&gt;&amp;quot;todo_idx&amp;quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;# fail silently, it&amp;#x27;s a simple plugin&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt; &amp;lt;= todo_idx &amp;lt; &lt;span class=&#34;built_in&#34;&gt;len&lt;/span&gt;(_TODOS[username]):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        _TODOS[username].pop(todo_idx)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; quart.Response(response=&lt;span class=&#34;string&#34;&gt;&amp;#x27;OK&amp;#x27;&lt;/span&gt;, status=&lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# ... becomes:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;@app.delete(&lt;span class=&#34;params&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;/todos/&amp;lt;string:username&amp;gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;async&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;delete_todos&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;username&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    request = &lt;span class=&#34;keyword&#34;&gt;await&lt;/span&gt; quart.request.get_json(force=&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;todos_idx&amp;#x27;&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; request &lt;span class=&#34;keyword&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;isinstance&lt;/span&gt;(request[&lt;span class=&#34;string&#34;&gt;&amp;#x27;todos_idx&amp;#x27;&lt;/span&gt;], &lt;span class=&#34;built_in&#34;&gt;list&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        todos_idx = request[&lt;span class=&#34;string&#34;&gt;&amp;quot;todos_idx&amp;quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; todo_idx &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;sorted&lt;/span&gt;(todos_idx, reverse=&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;):    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt; &amp;lt;= todo_idx &amp;lt; &lt;span class=&#34;built_in&#34;&gt;len&lt;/span&gt;(_TODOS[username]):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                _TODOS[username].pop(todo_idx)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; quart.Response(response=&lt;span class=&#34;string&#34;&gt;&amp;#x27;OK&amp;#x27;&lt;/span&gt;, status=&lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; quart.Response(response=&lt;span class=&#34;string&#34;&gt;&amp;#x27;Bad Request, todos_idx missing&amp;#x27;&lt;/span&gt;, status=&lt;span class=&#34;number&#34;&gt;400&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;48&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# openapi.yaml&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;delete:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;operationId:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;deleteTodo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;summary:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Delete&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;todo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;the&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;list&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;comment&#34;&gt;# ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;requestBody:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;attr&#34;&gt;required:&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;attr&#34;&gt;content:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;application/json:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;schema:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              &lt;span class=&#34;string&#34;&gt;$ref:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;#/components/schemas/deleteTodoRequest&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;comment&#34;&gt;# ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;delete:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;operationId:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;deleteTodos&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;summary:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Delete&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;todos&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;the&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;list&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;comment&#34;&gt;# ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;requestBody:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;attr&#34;&gt;required:&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;attr&#34;&gt;content:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;application/json:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;schema:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              &lt;span class=&#34;string&#34;&gt;$ref:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;#/components/schemas/deleteTodosRequest&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;components:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;schemas:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;# ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;deleteTodoRequest:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;type:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;object&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;required:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;todo_idx&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;properties:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;attr&#34;&gt;todo_idx:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;type:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;integer&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;description:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;The&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;of&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;the&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;todo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;delete.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;required:&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# ... becomes:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;deleteTodosRequest:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;type:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;object&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;required:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;todos_idx&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;properties:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;attr&#34;&gt;todos_idx:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;type:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;array&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;items:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;type:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;integer&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;description:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;The&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;indexes&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;of&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;the&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;todos&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;delete.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;required:&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 &lt;p&gt;Let&amp;#39;s summarize the changes we made:&lt;/p&gt;
@@ -148,7 +148,513 @@
 &lt;p&gt;ChatGPT understands that &lt;code&gt;dentist&lt;/code&gt; can&amp;#39;t be added twice, but I&amp;#39;m not happy with it&amp;#39;s mischaracterization &amp;quot;...was already on your list, so I didn&amp;#39;t add it again.&amp;quot;  Lies!  ChatGPT did indeed try to add &lt;code&gt;dentist&lt;/code&gt; a second time, and was merely prohibited.  &lt;/p&gt;
 &lt;p&gt;I can resolve this by informing ChatGPT duplicates should not be added.  This might however result in ChatGPT querying all TODOs before each addition, causing a lot of unnecessary chatter.  Instead I&amp;#39;ll tweak the plugin again, this time instruct ChatGPT to update its internal list when conflicts such as this occur:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/2023-05-15T224645.png&#34; alt=&#34;2023-05-15T224645&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;Conclusion&#34;&gt;&lt;a href=&#34;#Conclusion&#34; class=&#34;headerlink&#34; title=&#34;Conclusion&#34;&gt;&lt;/a&gt;Conclusion&lt;/h2&gt;&lt;p&gt;This is fun tech, for sure.  What will I do with it?  Hard to say - I&amp;#39;m just trying to keep up like everyone else.  I&amp;#39;m not sure if I&amp;#39;ll be able to make a living off of it, but I&amp;#39;m sure I&amp;#39;ll have fun trying.  I hope you do too!&lt;/p&gt;
+&lt;h2 id=&#34;The-Plugin-Store&#34;&gt;&lt;a href=&#34;#The-Plugin-Store&#34; class=&#34;headerlink&#34; title=&#34;The Plugin Store&#34;&gt;&lt;/a&gt;The Plugin Store&lt;/h2&gt;&lt;p&gt;What I&amp;#39;ve demonstrated here is small potatoes compared to what&amp;#39;s possible.  ChatGPT provides a plugin store, much like you&amp;#39;d find on any app store.  In the few days it&amp;#39;s taken me to write this blob post, I&amp;#39;ve seen a lot of new plugins pop up.  At the time of this writing, there are &lt;span for=&#34;chat-gpt-plugins-list-count&#34;&gt;0&lt;/span&gt; plugins available to me as a registered developer:&lt;/p&gt;
+&lt;pre name=&#34;chat-gpt-plugins-list&#34; class=&#34;json-object-array-to-table&#34; style=&#34;display: none;&#34; data-sort-by-property=&#34;name&#34;&gt;
+[
+  {
+    &#34;name&#34;: &#34;Wolfram&#34;,
+    &#34;description&#34;: &#34;Access computation, math, curated knowledge &amp; real-time data through Wolfram|Alpha and Wolfram Language.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Lexi Shopper&#34;,
+    &#34;description&#34;: &#34;Get product recommendations from your local Amazon store.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;MixerBox News&#34;,
+    &#34;description&#34;: &#34;Get latest news delivered right to you! Stay informed with bulletins across multiple categories from credible sources.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;QuickRecall&#34;,
+    &#34;description&#34;: &#34;Create flashcards and review them with spaced repeition.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;ChatSpot&#34;,
+    &#34;description&#34;: &#34;Get access to marketing/sales data including domain information, company research and search keyword research.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Tutory&#34;,
+    &#34;description&#34;: &#34;Access affordable, on-demand tutoring and education right at your fingertips.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Bohita&#34;,
+    &#34;description&#34;: &#34;Create apparel with any image you can describe! Get it delivered right to your door.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Abridged Due Diligence&#34;,
+    &#34;description&#34;: &#34;Discover the details! Search through recent SEC filings, with links to deeper analysis.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Video Insights&#34;,
+    &#34;description&#34;: &#34;Interact with online video platforms like Youtube or Daily Motion.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Expedia&#34;,
+    &#34;description&#34;: &#34;Bring your trip plans to life – get there, stay there, find things to see and do.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Glowing&#34;,
+    &#34;description&#34;: &#34;Schedule and send daily SMS messages - reminders, inspiration, helpers and more.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Ai Tool Hunt&#34;,
+    &#34;description&#34;: &#34;Explore the ideal AI solutions for all use cases, drawn from the most comprehensive global database of AI tools.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Zapier&#34;,
+    &#34;description&#34;: &#34;Interact with over 5,000+ apps like Google Sheets, Gmail, HubSpot, Salesforce, and thousands more.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Speak&#34;,
+    &#34;description&#34;: &#34;Learn how to say anything in another language with Speak, your AI-powered language tutor.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Tasty Recipes&#34;,
+    &#34;description&#34;: &#34;Discover recipe ideas, meal plans and cooking tips from Tasty&#39;s millions of users!&#34;
+  },
+  {
+    &#34;name&#34;: &#34;World News&#34;,
+    &#34;description&#34;: &#34;Summarize news headlines. You can ask for the latest news from various sources around the world.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Competitor PPC Ads&#34;,
+    &#34;description&#34;: &#34;Discover your competitors&#39; best PPC ads by entering their website address.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Keyplays Live Soccer&#34;,
+    &#34;description&#34;: &#34;Latest live soccer standings, results, commentary, tv stations, keyplays (with and without scores).&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Turo&#34;,
+    &#34;description&#34;: &#34;Search for the perfect Turo vehicle for your next trip.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;PlaylistAI&#34;,
+    &#34;description&#34;: &#34;Create Spotify playlists for any prompt.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Boolio&#34;,
+    &#34;description&#34;: &#34;The easiest way to analyze global stock values with the power of quantitative factor methodologies.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Hauling Buddies&#34;,
+    &#34;description&#34;: &#34;Locate dependable animal transporters using recommendations, reviews, and regulatory compliance search features.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Vivian Health&#34;,
+    &#34;description&#34;: &#34;Take the first step to finding your next healthcare job.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;DAIZY&#34;,
+    &#34;description&#34;: &#34;Deep insights on ETFs, stocks, cryptos. Institutional-grade data: performance, risk, sustainability, research.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Prompt Perfect&#34;,
+    &#34;description&#34;: &#34;Type &#39;perfect&#39; to craft the perfect prompt, every time.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Weather Report&#34;,
+    &#34;description&#34;: &#34;Current weather data for cities and airports using METAR aviation feeds.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;ChatWithVideo&#34;,
+    &#34;description&#34;: &#34;Ask questions, analyzing, and parsing through YouTube videos by simply providing a YouTube video URL.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Options Pro&#34;,
+    &#34;description&#34;: &#34;Options Pro is your personal options trading assistant to help you navigate market conditions.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;BlockAtlas&#34;,
+    &#34;description&#34;: &#34;Search the US Census! Find data sets, ask questions, and visualize.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;MixerBox OnePlayer&#34;,
+    &#34;description&#34;: &#34;Unlimited music, podcasts, and videos across various genres. Enjoy endless listening with our rich playlists!&#34;
+  },
+  {
+    &#34;name&#34;: &#34;PortfoliosLab&#34;,
+    &#34;description&#34;: &#34;Stocks, ETFs, funds, crypto analysis: historical performance, volatility, risk metrics, Sharpe ratio, drawdowns, etc.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;I Am Rich&#34;,
+    &#34;description&#34;: &#34;Proudly declare &#39;I am rich&#39;.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Word Sneak&#34;,
+    &#34;description&#34;: &#34;The AI has to sneak 3 secret words into your conversation. Guess the words to win the game!&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Klarna Shopping&#34;,
+    &#34;description&#34;: &#34;Search and compare prices from thousands of online shops.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;OwlJourney&#34;,
+    &#34;description&#34;: &#34;Provides lodging and activity suggestions, ensuring an engaging and user-friendly journey.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Show Me&#34;,
+    &#34;description&#34;: &#34;Create and edit diagrams directly in chat.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Metaphor&#34;,
+    &#34;description&#34;: &#34;Access the internet&#39;s highest quality content. Recommended by people, powered by neural search.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Klook&#34;,
+    &#34;description&#34;: &#34;From local escapes to far flung adventures, find the best experiences, tours, hotels and transport options anywhere.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;PortfolioPilot&#34;,
+    &#34;description&#34;: &#34;Your AI investing guide: portfolio assessment, recommendations, answers to all finance questions.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Polygon&#34;,
+    &#34;description&#34;: &#34;Market data, news, and fundamentals for stocks, options, forex, and crypto from Polygon.io.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Link Reader&#34;,
+    &#34;description&#34;: &#34;Reads the content of all kinds of links, like webpage, PDF, PPT, image, Word &amp; other docs.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Decision Journal&#34;,
+    &#34;description&#34;: &#34;Become a better decision maker by keeping track of your decisions and reviewing how they turn out.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Creatuity Stores&#34;,
+    &#34;description&#34;: &#34;We integrate stores so you can search for products in all of them at the same time.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Yay! Forms&#34;,
+    &#34;description&#34;: &#34;Allows you to create AI-Powered Forms, Surveys, Quizzes, or Questionnaires on Yay! Forms.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;CreatiCode Scratch&#34;,
+    &#34;description&#34;: &#34;Display Scratch programs as images and write 2D/3D programs using CreatiCode Scratch extensions.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Wishbucket&#34;,
+    &#34;description&#34;: &#34;Unified product search across all Korean platforms and brands.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;FundsDB&#34;,
+    &#34;description&#34;: &#34;Discover funding opportunities in UK and India on FundsDB. Type in your query in any language or /help for assistance.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;CreditYelp&#34;,
+    &#34;description&#34;: &#34;Access various essential financial calculators for a detailed repayment schedule and payoff term.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;QuakePH&#34;,
+    &#34;description&#34;: &#34;Stay updated with the latest earthquakes in the Philippines.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Clinical Trial Radar&#34;,
+    &#34;description&#34;: &#34;Discover current info on global clinical trials, organizations, diseases, and biomarkers from public &amp; private studies.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Career Copilot&#34;,
+    &#34;description&#34;: &#34;A trusted, always on assistant to help software developers find a better job. Built by Commit.dev.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Hubbub&#34;,
+    &#34;description&#34;: &#34;Local health risk &amp; safety guidance for COVID-19, Flu, RSV and more in the US.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Savvy Trader AI&#34;,
+    &#34;description&#34;: &#34;Realtime stock, crypto and other investment data.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Local by GoodCall&#34;,
+    &#34;description&#34;: &#34;Discover and support restaurants, shops &amp; services near you. 🍽️ 🛍️ 🔧&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Instacart&#34;,
+    &#34;description&#34;: &#34;What’s cookin&#39;? Ask about recipes, meal plans, &amp; more -- and get ingredients delivered from 40,000+ stores!&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Noteable&#34;,
+    &#34;description&#34;: &#34;Create notebooks in Python, SQL, and Markdown to explore data, visualize, and share notebooks with everyone.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;C3 Glide&#34;,
+    &#34;description&#34;: &#34;Get live aviation data for pilots. Ask questions about METARs, TAFs, NOTAMs for flight planning.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;OpenTable&#34;,
+    &#34;description&#34;: &#34;Allows you to search for restaurants available for booking dining experiences&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Wahi&#34;,
+    &#34;description&#34;: &#34;Hey Ontario, ask and get so in the know on the latest listings, property insights and more.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Shimmer: Nutrition Coach&#34;,
+    &#34;description&#34;: &#34;Track meals &amp; gain insights for a healthier lifestyle from 1m+ restaurants &amp; grocery stores.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;edX&#34;,
+    &#34;description&#34;: &#34;Find courses and content from leading universities to expand your knowledge at any level.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;KalendarAI&#34;,
+    &#34;description&#34;: &#34;KalendarAI sales agents generate revenue with potential customers from 200+ million companies globally.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;DEV Community&#34;,
+    &#34;description&#34;: &#34;Plugin for recommending articles or users from DEV Community.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Zillow&#34;,
+    &#34;description&#34;: &#34;Your real estate assistant is here! Search listings, view property details, and get home with Zillow.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;BuyWisely&#34;,
+    &#34;description&#34;: &#34;Compare Prices &amp; Discover the Latest Offers from thousands of online shops in Australia.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Penrose Analyst&#34;,
+    &#34;description&#34;: &#34;Search global news and research papers. Summarize Arxiv.org links. Ask me for the latest news!&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Speechki&#34;,
+    &#34;description&#34;: &#34;The easiest way to convert texts to ready-to-use audio — download link, audio player page, or embed!&#34;
+  },
+  {
+    &#34;name&#34;: &#34;AskYourPDF&#34;,
+    &#34;description&#34;: &#34;Unlock the power of your PDFs!, dive into your documents, find answers, and bring information to your fingertips.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Change&#34;,
+    &#34;description&#34;: &#34;Discover impactful nonprofits to support in your community and beyond.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Crafty Clues&#34;,
+    &#34;description&#34;: &#34;Guess the words that the AI craftily clues for you. Add restrictions to make the game more interesting!&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Website Performance&#34;,
+    &#34;description&#34;: &#34;Measure key metrics about your website - performance, accessibility, best practices, SEO, PWA.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Shop&#34;,
+    &#34;description&#34;: &#34;Search for millions of products from the world&#39;s greatest brands.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Bramework&#34;,
+    &#34;description&#34;: &#34;Find keywords, generate content briefs, perform SEO analysis, and extract SEO information.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;There&#39;s An AI For That&#34;,
+    &#34;description&#34;: &#34;Find the right AI tools for any use case, from the world&#39;s largest database of AI tools.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;RoboAd&#34;,
+    &#34;description&#34;: &#34;Your AI powered Ad Assistant!&#34;
+  },
+  {
+    &#34;name&#34;: &#34;AITickerChat&#34;,
+    &#34;description&#34;: &#34;Retrieve USA stock insights from SEC filings as well as Earnings Call Transcripts.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Scraper&#34;,
+    &#34;description&#34;: &#34;Scrape content from webpages by providing a URL.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;UK Latest News&#34;,
+    &#34;description&#34;: &#34;Get the latest news stories from the UK&#39;s top news outlets including BBC News, Sky News, The Independent, and others.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Giftwrap&#34;,
+    &#34;description&#34;: &#34;Ask about gift ideas for any occasion and recipient. Get it wrapped and delivered, no address needed.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;One Word Domains&#34;,
+    &#34;description&#34;: &#34;Check the availability of a domain and compare prices across different registrars.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Creature Generator&#34;,
+    &#34;description&#34;: &#34;Creates a random creature and an image it for use in role playing games.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Open Lecture&#34;,
+    &#34;description&#34;: &#34;Discover and access the right moments in open course lectures for targeted learning.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Magnetis&#34;,
+    &#34;description&#34;: &#34;Magnetis is a digital wealth manager. Get updated data on portfolios returns and allocations. Ask me about Magnetis.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Coupert&#34;,
+    &#34;description&#34;: &#34;Search for the internet’s best coupons from thousands of online stores.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;BizToc&#34;,
+    &#34;description&#34;: &#34;Search BizToc for business &amp; finance news.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Tabelog&#34;,
+    &#34;description&#34;: &#34;Allows you to find restaurants in Japan that have availability for reservations.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Photorealistic&#34;,
+    &#34;description&#34;: &#34;Generate Photorealistic prompts for Midjourney.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Yabble&#34;,
+    &#34;description&#34;: &#34;Create insights instantly. Any audience. Any question. Yabble it.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Access Link&#34;,
+    &#34;description&#34;: &#34;Access any links on the web and get the information you need.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Comic Finder&#34;,
+    &#34;description&#34;: &#34;A plugin that finds a relevant comic given a description. Currently supports XKCD and SMBC comics.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Algorithma&#34;,
+    &#34;description&#34;: &#34;Shape your virtual life with in this immersive life simulator game to begin Type /start to begin.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Tomorrow.io Weather&#34;,
+    &#34;description&#34;: &#34;Predicting, planning, and adapting to the weather forecast via contextualized chat-based insights.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Zumper Rental Search&#34;,
+    &#34;description&#34;: &#34;Find a rental home in the US and Canada.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Giga Tutor&#34;,
+    &#34;description&#34;: &#34;Giga is your AI powered personalised tutor, it keeps the answers to your questions personalised.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Currency Converter&#34;,
+    &#34;description&#34;: &#34;Convert currencies based on real-time rates.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;FiscalNote&#34;,
+    &#34;description&#34;: &#34;FiscalNote enables access to select market-leading, real-time data sets for legal, political, and regulatory information&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Golden&#34;,
+    &#34;description&#34;: &#34;Get current factual data on companies from the Golden knowledge graph.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;KeyMate.AI Search&#34;,
+    &#34;description&#34;: &#34;Search the web by using a Custom Search Engine with KeyMate.AI, your AI-powered web search engine.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Kraftful&#34;,
+    &#34;description&#34;: &#34;Your product development coach. Ask about best practices. Get top gurus’ product thinking.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;SEO.app&#34;,
+    &#34;description&#34;: &#34;Your personal SEO assistant for content marketing.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Planfit&#34;,
+    &#34;description&#34;: &#34;Get your tailored workout plan and instructions with videos - AI-powered Workout Coach, Planfit.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Polarr&#34;,
+    &#34;description&#34;: &#34;Search Polarr&#39;s massive pool of user generated filters to make your photos and videos perfect.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Podcast search&#34;,
+    &#34;description&#34;: &#34;This tool explores podcasts from PodcastIndex.org, a platform for decentralized audio content discovery.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Redfin&#34;,
+    &#34;description&#34;: &#34;Have questions about the housing market? Find the answers to help you win in today&#39;s market.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;ABC Music Notation&#34;,
+    &#34;description&#34;: &#34;Plugin for converting ABC music notation to wav, midi and postscript files.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Cloudflare Radar&#34;,
+    &#34;description&#34;: &#34;Get real-time insights into Internet traffic patterns and threats as seen by Cloudflare.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Ambition&#34;,
+    &#34;description&#34;: &#34;Search millions of jobs near you.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;CoinCap&#34;,
+    &#34;description&#34;: &#34;Get cryptocurrency information from CoinCap.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;WebPilot&#34;,
+    &#34;description&#34;: &#34;Browse &amp; QA Webpage/PDF/Data. Generate articles, from one or more URLs.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Public&#34;,
+    &#34;description&#34;: &#34;Get real-time and historical market data, including asset prices, news, research, and comprehensive financial analysis.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Visla&#34;,
+    &#34;description&#34;: &#34;Create a short video from public stock footage based on your specified topic.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;GameBase&#34;,
+    &#34;description&#34;: &#34;Chat and get game info, database is based on the latest gaming information in 2023, supports multiple platforms.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;ImageSearch&#34;,
+    &#34;description&#34;: &#34;Find and display image from unsplash.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Open Trivia&#34;,
+    &#34;description&#34;: &#34;Get trivia questions from various categories and difficulty levels.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Manorlead&#34;,
+    &#34;description&#34;: &#34;Get a list of listings for rent or sale in cities across Canada and the US based on your search criteria.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Statis Fund Finance&#34;,
+    &#34;description&#34;: &#34;Financial data tool for analyzing equities. You can get price quotes, analyze moving averages, RSI, and more.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Tic Tac Toe&#34;,
+    &#34;description&#34;: &#34;Playing a game of Tic Tac Toe with varying board sizes. You can submit your move and get the AI&#39;s response move.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Rentable Apartments&#34;,
+    &#34;description&#34;: &#34;Get apartment options in a city of your choice, scoped to your needs and budget.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;VoxScript&#34;,
+    &#34;description&#34;: &#34;Enables searching of YouTube transcripts, financial data sources, and Google Search results, and more!&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Xpapers&#34;,
+    &#34;description&#34;: &#34;Effortlessly find real academic papers on arXiv. Dive into abstracts, references, and access public PDF URLs.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;KAYAK&#34;,
+    &#34;description&#34;: &#34;Search flights, stays &amp; rental cars or get recommendations where you can go on your budget.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Trip.com&#34;,
+    &#34;description&#34;: &#34;Discover the ultimate travel companion - simplify your flight and hotel bookings. Enjoy your effortless trip!&#34;
+  },
+  {
+    &#34;name&#34;: &#34;SEO CORE AI&#34;,
+    &#34;description&#34;: &#34;Use AI to analyze and improve the SEO of a website. Get advice on websites, keywords and competitors.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;Likewise&#34;,
+    &#34;description&#34;: &#34;Your media and entertainment companion. Get TV, Movies, Books &amp; Podcast Recommendations.&#34;
+  },
+  {
+    &#34;name&#34;: &#34;ABCmouse&#34;,
+    &#34;description&#34;: &#34;Provides fun and educational learning activities for children 2-8 years old.&#34;
+  }
+]
+&lt;/pre&gt;
+
+&lt;h2 id=&#34;Wrap-Up&#34;&gt;&lt;a href=&#34;#Wrap-Up&#34; class=&#34;headerlink&#34; title=&#34;Wrap-Up&#34;&gt;&lt;/a&gt;Wrap-Up&lt;/h2&gt;&lt;p&gt;OpenAI&amp;#39;s ChatGPT plugin framework shows a lot of promise, and it requires us to entertain many new ideas about how AI will interact with &lt;em&gt;us&lt;/em&gt;.  I&amp;#39;ve heard people draw comparisons to previous technological advancements, but I have a hard time doing so.  This is a new thing, and it&amp;#39;s going to take some time to figure out how to use it.&lt;/p&gt;
 &lt;div class=&#34;references&#34;&gt;
 
 &lt;h2 id=&#34;References&#34;&gt;&lt;a href=&#34;#References&#34; class=&#34;headerlink&#34; title=&#34;References&#34;&gt;&lt;/a&gt;References&lt;/h2&gt;&lt;ol&gt;

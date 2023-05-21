@@ -8,6 +8,7 @@
   <meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
   <meta name="generator" content="Hexo 6.3.0">
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic%7CRoboto+Mono:300,300italic,400,400italic,700,700italic%7CMontserrat:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <script class="next-config" data-name="main" type="application/json">
@@ -15,9 +16,9 @@
       "hostname": "alt-tab.io",
       "root": "/",
       "images": "/images",
-      "scheme": "Pisces",
+      "scheme": "Mist",
       "darkmode": true,
-      "version": "8.15.1",
+      "version": "8.16.0",
       "exturl": false,
       "sidebar":
       {
@@ -124,6 +125,7 @@
   <link rel="alternate" type="application/rss+xml" title="alt-tab.io: Adventures in context switching" href="/rss.xml" />
   <link rel="alternate" type="application/atom+xml" title="alt-tab.io: Adventures in context switching" href="/atom.xml" />
   <link rel="alternate" type="application/json" title="alt-tab.io: Adventures in context switching" href="/feed.json" />
+  <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
   <style>
     .references
     {
@@ -282,7 +284,7 @@
                 <time itemprop="dateCreated" datetime="2023-05-06T00:00:00-04:00" content="2023-05-06"> 05-06 </time>
               </div>
               <div class="post-title">
-                <a class="post-title-link" href="/2023/05/06/ChatGPT%20Plugins%20-%20First%20Impressions/" itemprop="url">
+                <a class="post-title-link" href="/2023/05/06/chatgpt-plugins--first-impressions/" itemprop="url">
                   <span itemprop="name">ChatGPT Plugins - First Impressions</span>
                 </a>
               </div>
@@ -300,10 +302,16 @@
         </span>
         <span class="author" itemprop="copyrightHolder">Matthew Corven</span>
       </div>
-      <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+      <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
       </div>
     </div>
   </footer>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
   <div class="back-to-top" role="button" aria-label="Back to top">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
@@ -320,6 +328,7 @@
   <script src="/js/comments.js"></script>
   <script src="/js/utils.js"></script>
   <script src="/js/motion.js"></script>
+  <script src="/js/schemes/muse.js"></script>
   <script src="/js/next-boot.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
   <script src="/js/third-party/search/local-search.js"></script>
@@ -328,8 +337,8 @@
       "enable": true,
       "theme":
       {
-        "light": "light",
-        "dark": "default"
+        "light": "default",
+        "dark": "dark"
       },
       "version": "7.1.2",
       "options":
@@ -345,12 +354,34 @@
 
   </script>
   <script src="/js/third-party/tags/mermaid.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
   <script>
     const feedElInnerHTML = `
-                    <svg width="13" height="13" viewBox="-10 -5 1034 1034" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-                        <path fill="#555555" d="M854 175q-27 0 -46 19t-19 45.5t18.5 45t45 18.5t45.5 -18.5t19 -45t-18.5 -45.5t-44.5 -19zM205 192l-34 34q-83 83 -88 154t68 144l82 82q45 46 48.5 78t-33.5 69v0q-16 19 -15.5 44.5t18.5 43.5t43.5 18.5t44.5 -15.5l1 1q25 -25 47 -32t45.5 4.5t53.5 41.5l95 96 q75 74 147.5 70t155.5 -87l33 -34l-71 -72l-18 18q-47 47 -84 47.5t-82 -44.5l-112 -112q-86 -86 -169 -17l-11 -11q35 -42 31.5 -83t-45.5 -82l-100 -101q-31 -31 -40.5 -56.5t1 -51.5t42.5 -59l17 -17zM703 326q-28 0 -46.5 19t-18.5 45.5t18.5 45.5t45 19t45.5 -19 t19 -45.5t-18.5 -45t-44.5 -19.5zM551 477q-27 0 -46 19t-19 45.5t19 45.5t45.5 19t45.5 -19t19 -45.5t-19 -45t-45 -19.5z"></path>
+                    <svg class="feed-json-svg" width="13" height="13" viewBox="-10 -5 1034 1034" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                        <path class="feed-json-svg-path" d="M854 175q-27 0 -46 19t-19 45.5t18.5 45t45 18.5t45.5 -18.5t19 -45t-18.5 -45.5t-44.5 -19zM205 192l-34 34q-83 83 -88 154t68 144l82 82q45 46 48.5 78t-33.5 69v0q-16 19 -15.5 44.5t18.5 43.5t43.5 18.5t44.5 -15.5l1 1q25 -25 47 -32t45.5 4.5t53.5 41.5l95 96 q75 74 147.5 70t155.5 -87l33 -34l-71 -72l-18 18q-47 47 -84 47.5t-82 -44.5l-112 -112q-86 -86 -169 -17l-11 -11q35 -42 31.5 -83t-45.5 -82l-100 -101q-31 -31 -40.5 -56.5t1 -51.5t42.5 -59l17 -17zM703 326q-28 0 -46.5 19t-18.5 45.5t18.5 45.5t45 19t45.5 -19 t19 -45.5t-18.5 -45t-44.5 -19.5zM551 477q-27 0 -46 19t-19 45.5t19 45.5t45.5 19t45.5 -19t19 -45.5t-19 -45t-45 -19.5z"></path>
                     </svg>
                     `;
+
+    function ensureStylesAlreadyInHead()
+    {
+      let styleElement = document.querySelector('style.feed-json-style');
+      if (!styleElement)
+      {
+        styleElement = document.createElement('style');
+        const css = `
+                .feed-json-svg > .feed-json-svg-path {
+                    fill: #555555;
+                }
+                @media (prefers-color-scheme: dark) {
+                    .feed-json-svg > .feed-json-svg-path {
+                        fill: #999999;
+                    }
+                }
+            `;
+        styleElement.innerHTML = css;
+        document.head.appendChild(styleElement);
+      }
+    }
 
     function getFeedElement()
     {
@@ -361,7 +392,8 @@
       }
       return null;
     }
-    document.addEventListener("DOMContentLoaded", function ()
+
+    function fixUpJsonFeedIcon()
     {
       let intervalId = setInterval(function ()
       {
@@ -371,7 +403,119 @@
           clearInterval(intervalId);
           anchorElement.innerHTML = feedElInnerHTML;
         }
-      }, 1000);
+      }, 250);
+    }
+
+    function camelCaseToSentence(str)
+    {
+      return str.replace(/([A-Z])/g, ' $1').replace(/^./, function (str)
+      {
+        return str.toUpperCase();
+      });
+    }
+
+    function convertObject(dataObject)
+    {
+      if (dataObject.length === 0) return {
+        headings: [],
+        data: []
+      };
+      let obj = {
+        // Quickly get the headings
+        headings: Object.keys(dataObject[0]).map(k => camelCaseToSentence(k)),
+        // data array
+        data: []
+      };
+      const len = dataObject.length;
+      // Loop over the objects to get the values
+      for (let i = 0; i < len; i++)
+      {
+        obj.data[i] = [];
+        for (let p in dataObject[i])
+        {
+          if (dataObject[i].hasOwnProperty(p))
+          {
+            obj.data[i].push(dataObject[i][p]);
+          }
+        }
+      }
+      return obj
+    };
+
+    function renderAnyJsonTables()
+    {
+      const jsonTableDefs = Array.from(document.querySelectorAll('.json-object-array-to-table'));
+      jsonTableDefs.forEach((rawJsonContainer) =>
+      {
+        const defName = rawJsonContainer.getAttribute('data-name');
+        const sortBy = rawJsonContainer.getAttribute('data-sort-by-property');
+        const sortDirection = rawJsonContainer.getAttribute('data-sort-direction');
+        const json = JSON.parse(rawJsonContainer.innerText);
+        const table = document.createElement('table');
+        // const thead = document.createElement('thead');
+        // const tbody = document.createElement('tbody');
+        // const headerRow = document.createElement('tr');
+        // const headerRowKeys = Object.keys(json[0]);
+        // Sort json if sortBy is defined and string type, else json remains unchanged. If sortDirection is also defined, use it. If not, default to ascending.
+        if (sortBy && typeof sortBy === 'string')
+        {
+          if (sortDirection && typeof sortDirection === 'string')
+          {
+            json.sort((a, b) =>
+            {
+              if (sortDirection === 'desc')
+              {
+                return b[sortBy].localeCompare(a[sortBy]);
+              }
+              return a[sortBy].localeCompare(b[sortBy]);
+            });
+          }
+          else
+          {
+            json.sort((a, b) =>
+            {
+              return a[sortBy].localeCompare(b[sortBy]);
+            });
+          }
+        }
+        // headerRowKeys.forEach((key) => {
+        //     const th = document.createElement('th');
+        //     th.innerText = camelCaseToSentence(key);
+        //     headerRow.appendChild(th);
+        // });
+        // thead.appendChild(headerRow);
+        // table.appendChild(thead);
+        // json.forEach((row) => {
+        //     const tr = document.createElement('tr');
+        //     headerRowKeys.forEach((key) => {
+        //         const td = document.createElement('td');
+        //         td.innerText = row[key];
+        //         td.style.textAlign = 'initial';
+        //         tr.appendChild(td);
+        //     });
+        //     tbody.appendChild(tr);
+        // });
+        // table.appendChild(tbody);
+        // rawJsonContainer.parentElement.replaceChild(table, rawJsonContainer);
+        rawJsonContainer.parentElement.replaceChild(table, rawJsonContainer);
+        const convertedObject = convertObject(json);
+        const dataTable = new simpleDatatables.DataTable(table,
+        {
+          data: convertedObject,
+          searchable: true,
+          fixedHeight: true,
+        });
+        const counterLabel = document.querySelector('span[for="chat-gpt-plugins-list-count"]');
+        if (counterLabel)
+        {
+          counterLabel.innerText = json.length;
+        }
+      });
+    }
+    document.addEventListener("DOMContentLoaded", function ()
+    {
+      ensureStylesAlreadyInHead();
+      renderAnyJsonTables();
     });
 
   </script>

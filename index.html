@@ -8,6 +8,7 @@
   <meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
   <meta name="generator" content="Hexo 6.3.0">
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic%7CRoboto+Mono:300,300italic,400,400italic,700,700italic%7CMontserrat:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <script class="next-config" data-name="main" type="application/json">
@@ -15,9 +16,9 @@
       "hostname": "alt-tab.io",
       "root": "/",
       "images": "/images",
-      "scheme": "Pisces",
+      "scheme": "Mist",
       "darkmode": true,
-      "version": "8.15.1",
+      "version": "8.16.0",
       "exturl": false,
       "sidebar":
       {
@@ -124,6 +125,7 @@
   <link rel="alternate" type="application/rss+xml" title="alt-tab.io: Adventures in context switching" href="/rss.xml" />
   <link rel="alternate" type="application/atom+xml" title="alt-tab.io: Adventures in context switching" href="/atom.xml" />
   <link rel="alternate" type="application/json" title="alt-tab.io: Adventures in context switching" href="/feed.json" />
+  <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
   <style>
     .references
     {
@@ -270,7 +272,7 @@
     <div class="main-inner index posts-expand">
       <div class="post-block">
         <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-          <link itemprop="mainEntityOfPage" href="https://alt-tab.io/2023/05/06/ChatGPT%20Plugins%20-%20First%20Impressions/">
+          <link itemprop="mainEntityOfPage" href="https://alt-tab.io/2023/05/06/chatgpt-plugins--first-impressions/">
           <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
             <meta itemprop="image" content="/images/avatar.gif">
             <meta itemprop="name" content="Matthew Corven">
@@ -285,7 +287,7 @@
           </span>
           <header class="post-header">
             <h2 class="post-title" itemprop="name headline">
-              <a href="/2023/05/06/ChatGPT%20Plugins%20-%20First%20Impressions/" class="post-title-link" itemprop="url">ChatGPT Plugins - First Impressions</a>
+              <a href="/2023/05/06/chatgpt-plugins--first-impressions/" class="post-title-link" itemprop="url">ChatGPT Plugins - First Impressions</a>
             </h2>
             <div class="post-meta-container">
               <div class="post-meta">
@@ -301,7 +303,7 @@
                     <i class="far fa-calendar-check"></i>
                   </span>
                   <span class="post-meta-item-text">Edited on</span>
-                  <time title="Modified: 2023-05-17 00:10:16" itemprop="dateModified" datetime="2023-05-17T00:10:16-04:00">2023-05-17</time>
+                  <time title="Modified: 2023-05-21 13:09:52" itemprop="dateModified" datetime="2023-05-21T13:09:52-04:00">2023-05-21</time>
                 </span>
                 <span class="post-meta-item">
                   <span class="post-meta-item-icon">
@@ -321,7 +323,7 @@
               <p><a target="_blank" rel="noopener" href="https://giphy.com/gifs/movie-up-NoHe3HpB1Mg8w">via GIPHY</a></p>
             </div>
             <h2 id="Shiny-New-Toy"><a href="#Shiny-New-Toy" class="headerlink" title="Shiny New Toy"></a>Shiny New Toy</h2>
-            <p><strong>Enter Stage Right:</strong> ChatGPT&#39;s initial plugin framework release promises to dazzle by connecting it to the internet. </p>
+            <p><strong>Enter Stage Right:</strong> ChatGPT&#39;s initial plugin framework release promises to dazzle by connecting it to the internet via REST APIs. This is a big deal, and I&#39;m excited to see where it goes. I&#39;ve been tinkering with the plugin framework for a few days now, and I&#39;m impressed with the simplicity of the implementation and the power of the results. I&#39;m also impressed with the speed at which OpenAI is iterating on the framework, and I&#39;m excited to see what the future holds. I&#39;m not sure if I&#39;m more excited about the possibilities for ChatGPT or the possibilities for the plugin framework itself. I&#39;m sure both will be amazing. </p>
             <blockquote>
               <p>OpenAI plugins connect ChatGPT to third-party applications. These plugins enable ChatGPT to interact with APIs defined by developers, enhancing ChatGPT&#39;s capabilities and allowing it to perform a wide range of actions.</p>
               <p><em>OpenAI</em>, <a target="_blank" rel="noopener" href="https://platform.openai.com/docs/plugins/introduction">Chat Plugins</a> [30 April 2023]</p>
@@ -331,8 +333,8 @@
             <h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2>
             <p>ChatGPT plugins are constructed with:</p>
             <ol>
-              <li><strong>One or more REST API endpoints</strong> implemented in any language and&#x2F;or framework you prefer: Node.js, Deno, .NET Web API or Minimal API, Ruby, Rust, Go, Azure APIM, Azure Logic App, Azure Function, AWS Lamda or whatever else you fancy. (<a target="_blank" rel="noopener" href="https://www.ibm.com/docs/en/SS4SVW_3.0.0/backmatter/pdf.pdf">COBOL</a> diehards rejoice!)<ul>
-                  <li>OpenAI provides a <a target="_blank" rel="noopener" href="https://github.com/openai/plugins-quickstart">Python-based &quot;TODO API&quot; plugin</a> to get you started with local experimentation. It seems pretty useless until you realize that by tinkering with the inputs and outputs, even parameter names, you will begin to witness the power of ChatGPT&#39;s language processing capabilities; everything is context.</li>
+              <li><strong>One or more REST API endpoints</strong> implemented in any language and&#x2F;or framework you prefer: Node.js, Deno, ASP .NET Controllers or Minimal API, Azure Functions, Ruby on Rails, Rust, Go, <a target="_blank" rel="noopener" href="https://docs.bip.sh/functions/get-started">Bip Functions</a>, AWS Lamda, <a target="_blank" rel="noopener" href="https://reference.wolfram.com/language/workflow/DeployAWebAPI.html">Wolfram</a> or whatever else you fancy (<a target="_blank" rel="noopener" href="https://www.ibm.com/docs/en/SS4SVW_3.0.0/backmatter/pdf.pdf">COBOL</a> diehards rejoice!). Coded APIs aren&#39;t the only option either; you can just a easily use a <a target="_blank" rel="noopener" href="https://www.gartner.com/en/information-technology/glossary/low-code-no-code-development-platform-lcncdp">low-code&#x2F;no-code</a> platform like <a target="_blank" rel="noopener" href="https://powerapps.microsoft.com/en-us/">Power Apps</a>, <a target="_blank" rel="noopener" href="https://flow.microsoft.com/en-us/">Power Automate</a>, Azure APIM, Azure Logic App, <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/data-api-builder/overview-to-data-api-builder">Data API Builder</a>, or <a target="_blank" rel="noopener" href="https://www.outsystems.com/blog/posts/low-code-api/">OutSystems</a>. The only requirement is that your API is accessible via the internet.<ul>
+                  <li>OpenAI provides a <a target="_blank" rel="noopener" href="https://github.com/openai/plugins-quickstart">Python-based &quot;TODO API&quot; plugin</a> to get you started with local experimentation. It seems pretty useless until you realize that by tinkering with the inputs and outputs, descriptions, even parameter names, you will begin to witness the power of ChatGPT&#39;s language processing capabilities.</li>
                 </ul>
               </li>
               <li><strong>A manifest file</strong> (<code>yourdomain.com/.well-known/ai-plugin.json</code>) describing the plugin to ChatGPT. The contents and structure of this file are likely to change, but the most critical bits are:<ul>
@@ -352,7 +354,7 @@
   participant Client Browser
   participant OpenAI Servers
   participant Plugin Provider API
-  User->>Client Browser: Select Plugin
+  User->>Client Browser: New ChatGPT Chat
   Client Browser->>OpenAI Servers: Register Plugin with User's ChatGPT profile
   OpenAI Servers-->>Client Browser: Inject compact plugin context <br>(description & endpoints)<br>into hidden prompt message
   Client Browser-->>User: Render UI
@@ -379,7 +381,7 @@
   actor User
   participant Client Browser
   participant OpenAI Servers
-  User->>Client Browser: Select Plugin
+  User->>Client Browser: New ChatGPT Chat
   Client Browser->>OpenAI Servers: Register Plugin with User's ChatGPT profile
   OpenAI Servers-->>Client Browser: Inject compact plugin context <br>(description & endpoints)<br>into hidden prompt message
   Client Browser-->>User: Render UI
@@ -475,7 +477,7 @@
                     <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre>
                   </td>
                   <td class="code">
-                    <pre><span class="line"><span class="comment"># main.py</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="meta">@app.post(<span class="params"><span class="string">&quot;/todos/&lt;string:username&gt;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">add_todo</span>(<span class="params">username</span>):</span><br><span class="line">    request = <span class="keyword">await</span> quart.request.get_json(force=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> username <span class="keyword">not</span> <span class="keyword">in</span> _TODOS:</span><br><span class="line">        _TODOS[username] = []</span><br><span class="line">    _TODOS[username].append(request[<span class="string">&quot;todo&quot;</span>])</span><br><span class="line">    <span class="keyword">return</span> quart.Response(response=<span class="string">&#x27;OK&#x27;</span>, status=<span class="number">200</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ... becomes:</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.delete(<span class="params"><span class="string">&quot;/todos/&lt;string:username&gt;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">delete_todos</span>(<span class="params">username</span>):</span><br><span class="line">    request = <span class="keyword">await</span> quart.request.get_json(force=<span class="literal">True</span>)</span><br><span class="line">    <span class="comment"># fail silently, it&#x27;s a simple plugin</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;todos_idx&#x27;</span> <span class="keyword">in</span> request <span class="keyword">and</span> <span class="built_in">isinstance</span>(request[<span class="string">&#x27;todos_idx&#x27;</span>], <span class="built_in">list</span>):</span><br><span class="line">        todos_idx = request[<span class="string">&quot;todos_idx&quot;</span>]</span><br><span class="line">        <span class="keyword">for</span> todo_idx <span class="keyword">in</span> <span class="built_in">sorted</span>(todos_idx, reverse=<span class="literal">True</span>):    </span><br><span class="line">            <span class="keyword">if</span> <span class="number">0</span> &lt;= todo_idx &lt; <span class="built_in">len</span>(_TODOS[username]):</span><br><span class="line">                _TODOS[username].pop(todo_idx)</span><br><span class="line">        <span class="keyword">return</span> quart.Response(response=<span class="string">&#x27;OK&#x27;</span>, status=<span class="number">200</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> quart.Response(response=<span class="string">&#x27;Bad Request, todos_idx missing&#x27;</span>, status=<span class="number">400</span>)</span><br></pre>
+                    <pre><span class="line"><span class="comment"># main.py</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="meta">@app.delete(<span class="params"><span class="string">&quot;/todos/&lt;string:username&gt;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">delete_todo</span>(<span class="params">username</span>):</span><br><span class="line">    request = <span class="keyword">await</span> quart.request.get_json(force=<span class="literal">True</span>)</span><br><span class="line">    todo_idx = request[<span class="string">&quot;todo_idx&quot;</span>]</span><br><span class="line">    <span class="comment"># fail silently, it&#x27;s a simple plugin</span></span><br><span class="line">    <span class="keyword">if</span> <span class="number">0</span> &lt;= todo_idx &lt; <span class="built_in">len</span>(_TODOS[username]):</span><br><span class="line">        _TODOS[username].pop(todo_idx)</span><br><span class="line">    <span class="keyword">return</span> quart.Response(response=<span class="string">&#x27;OK&#x27;</span>, status=<span class="number">200</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ... becomes:</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.delete(<span class="params"><span class="string">&quot;/todos/&lt;string:username&gt;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">delete_todos</span>(<span class="params">username</span>):</span><br><span class="line">    request = <span class="keyword">await</span> quart.request.get_json(force=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;todos_idx&#x27;</span> <span class="keyword">in</span> request <span class="keyword">and</span> <span class="built_in">isinstance</span>(request[<span class="string">&#x27;todos_idx&#x27;</span>], <span class="built_in">list</span>):</span><br><span class="line">        todos_idx = request[<span class="string">&quot;todos_idx&quot;</span>]</span><br><span class="line">        <span class="keyword">for</span> todo_idx <span class="keyword">in</span> <span class="built_in">sorted</span>(todos_idx, reverse=<span class="literal">True</span>):    </span><br><span class="line">            <span class="keyword">if</span> <span class="number">0</span> &lt;= todo_idx &lt; <span class="built_in">len</span>(_TODOS[username]):</span><br><span class="line">                _TODOS[username].pop(todo_idx)</span><br><span class="line">        <span class="keyword">return</span> quart.Response(response=<span class="string">&#x27;OK&#x27;</span>, status=<span class="number">200</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> quart.Response(response=<span class="string">&#x27;Bad Request, todos_idx missing&#x27;</span>, status=<span class="number">400</span>)</span><br></pre>
                   </td>
                 </tr>
               </table>
@@ -508,8 +510,514 @@
             <p>ChatGPT understands that <code>dentist</code> can&#39;t be added twice, but I&#39;m not happy with it&#39;s mischaracterization &quot;...was already on your list, so I didn&#39;t add it again.&quot; Lies! ChatGPT did indeed try to add <code>dentist</code> a second time, and was merely prohibited. </p>
             <p>I can resolve this by informing ChatGPT duplicates should not be added. This might however result in ChatGPT querying all TODOs before each addition, causing a lot of unnecessary chatter. Instead I&#39;ll tweak the plugin again, this time instruct ChatGPT to update its internal list when conflicts such as this occur:</p>
             <p><img src="/2023-05-15T224645.png" alt="2023-05-15T224645"></p>
-            <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2>
-            <p>This is fun tech, for sure. What will I do with it? Hard to say - I&#39;m just trying to keep up like everyone else. I&#39;m not sure if I&#39;ll be able to make a living off of it, but I&#39;m sure I&#39;ll have fun trying. I hope you do too!</p>
+            <h2 id="The-Plugin-Store"><a href="#The-Plugin-Store" class="headerlink" title="The Plugin Store"></a>The Plugin Store</h2>
+            <p>What I&#39;ve demonstrated here is small potatoes compared to what&#39;s possible. ChatGPT provides a plugin store, much like you&#39;d find on any app store. In the few days it&#39;s taken me to write this blob post, I&#39;ve seen a lot of new plugins pop up. At the time of this writing, there are <span for="chat-gpt-plugins-list-count">0</span> plugins available to me as a registered developer:</p>
+            <pre name="chat-gpt-plugins-list" class="json-object-array-to-table" style="display: none;" data-sort-by-property="name">
+[
+  {
+    "name": "Wolfram",
+    "description": "Access computation, math, curated knowledge & real-time data through Wolfram|Alpha and Wolfram Language."
+  },
+  {
+    "name": "Lexi Shopper",
+    "description": "Get product recommendations from your local Amazon store."
+  },
+  {
+    "name": "MixerBox News",
+    "description": "Get latest news delivered right to you! Stay informed with bulletins across multiple categories from credible sources."
+  },
+  {
+    "name": "QuickRecall",
+    "description": "Create flashcards and review them with spaced repeition."
+  },
+  {
+    "name": "ChatSpot",
+    "description": "Get access to marketing/sales data including domain information, company research and search keyword research."
+  },
+  {
+    "name": "Tutory",
+    "description": "Access affordable, on-demand tutoring and education right at your fingertips."
+  },
+  {
+    "name": "Bohita",
+    "description": "Create apparel with any image you can describe! Get it delivered right to your door."
+  },
+  {
+    "name": "Abridged Due Diligence",
+    "description": "Discover the details! Search through recent SEC filings, with links to deeper analysis."
+  },
+  {
+    "name": "Video Insights",
+    "description": "Interact with online video platforms like Youtube or Daily Motion."
+  },
+  {
+    "name": "Expedia",
+    "description": "Bring your trip plans to life – get there, stay there, find things to see and do."
+  },
+  {
+    "name": "Glowing",
+    "description": "Schedule and send daily SMS messages - reminders, inspiration, helpers and more."
+  },
+  {
+    "name": "Ai Tool Hunt",
+    "description": "Explore the ideal AI solutions for all use cases, drawn from the most comprehensive global database of AI tools."
+  },
+  {
+    "name": "Zapier",
+    "description": "Interact with over 5,000+ apps like Google Sheets, Gmail, HubSpot, Salesforce, and thousands more."
+  },
+  {
+    "name": "Speak",
+    "description": "Learn how to say anything in another language with Speak, your AI-powered language tutor."
+  },
+  {
+    "name": "Tasty Recipes",
+    "description": "Discover recipe ideas, meal plans and cooking tips from Tasty's millions of users!"
+  },
+  {
+    "name": "World News",
+    "description": "Summarize news headlines. You can ask for the latest news from various sources around the world."
+  },
+  {
+    "name": "Competitor PPC Ads",
+    "description": "Discover your competitors' best PPC ads by entering their website address."
+  },
+  {
+    "name": "Keyplays Live Soccer",
+    "description": "Latest live soccer standings, results, commentary, tv stations, keyplays (with and without scores)."
+  },
+  {
+    "name": "Turo",
+    "description": "Search for the perfect Turo vehicle for your next trip."
+  },
+  {
+    "name": "PlaylistAI",
+    "description": "Create Spotify playlists for any prompt."
+  },
+  {
+    "name": "Boolio",
+    "description": "The easiest way to analyze global stock values with the power of quantitative factor methodologies."
+  },
+  {
+    "name": "Hauling Buddies",
+    "description": "Locate dependable animal transporters using recommendations, reviews, and regulatory compliance search features."
+  },
+  {
+    "name": "Vivian Health",
+    "description": "Take the first step to finding your next healthcare job."
+  },
+  {
+    "name": "DAIZY",
+    "description": "Deep insights on ETFs, stocks, cryptos. Institutional-grade data: performance, risk, sustainability, research."
+  },
+  {
+    "name": "Prompt Perfect",
+    "description": "Type 'perfect' to craft the perfect prompt, every time."
+  },
+  {
+    "name": "Weather Report",
+    "description": "Current weather data for cities and airports using METAR aviation feeds."
+  },
+  {
+    "name": "ChatWithVideo",
+    "description": "Ask questions, analyzing, and parsing through YouTube videos by simply providing a YouTube video URL."
+  },
+  {
+    "name": "Options Pro",
+    "description": "Options Pro is your personal options trading assistant to help you navigate market conditions."
+  },
+  {
+    "name": "BlockAtlas",
+    "description": "Search the US Census! Find data sets, ask questions, and visualize."
+  },
+  {
+    "name": "MixerBox OnePlayer",
+    "description": "Unlimited music, podcasts, and videos across various genres. Enjoy endless listening with our rich playlists!"
+  },
+  {
+    "name": "PortfoliosLab",
+    "description": "Stocks, ETFs, funds, crypto analysis: historical performance, volatility, risk metrics, Sharpe ratio, drawdowns, etc."
+  },
+  {
+    "name": "I Am Rich",
+    "description": "Proudly declare 'I am rich'."
+  },
+  {
+    "name": "Word Sneak",
+    "description": "The AI has to sneak 3 secret words into your conversation. Guess the words to win the game!"
+  },
+  {
+    "name": "Klarna Shopping",
+    "description": "Search and compare prices from thousands of online shops."
+  },
+  {
+    "name": "OwlJourney",
+    "description": "Provides lodging and activity suggestions, ensuring an engaging and user-friendly journey."
+  },
+  {
+    "name": "Show Me",
+    "description": "Create and edit diagrams directly in chat."
+  },
+  {
+    "name": "Metaphor",
+    "description": "Access the internet's highest quality content. Recommended by people, powered by neural search."
+  },
+  {
+    "name": "Klook",
+    "description": "From local escapes to far flung adventures, find the best experiences, tours, hotels and transport options anywhere."
+  },
+  {
+    "name": "PortfolioPilot",
+    "description": "Your AI investing guide: portfolio assessment, recommendations, answers to all finance questions."
+  },
+  {
+    "name": "Polygon",
+    "description": "Market data, news, and fundamentals for stocks, options, forex, and crypto from Polygon.io."
+  },
+  {
+    "name": "Link Reader",
+    "description": "Reads the content of all kinds of links, like webpage, PDF, PPT, image, Word & other docs."
+  },
+  {
+    "name": "Decision Journal",
+    "description": "Become a better decision maker by keeping track of your decisions and reviewing how they turn out."
+  },
+  {
+    "name": "Creatuity Stores",
+    "description": "We integrate stores so you can search for products in all of them at the same time."
+  },
+  {
+    "name": "Yay! Forms",
+    "description": "Allows you to create AI-Powered Forms, Surveys, Quizzes, or Questionnaires on Yay! Forms."
+  },
+  {
+    "name": "CreatiCode Scratch",
+    "description": "Display Scratch programs as images and write 2D/3D programs using CreatiCode Scratch extensions."
+  },
+  {
+    "name": "Wishbucket",
+    "description": "Unified product search across all Korean platforms and brands."
+  },
+  {
+    "name": "FundsDB",
+    "description": "Discover funding opportunities in UK and India on FundsDB. Type in your query in any language or /help for assistance."
+  },
+  {
+    "name": "CreditYelp",
+    "description": "Access various essential financial calculators for a detailed repayment schedule and payoff term."
+  },
+  {
+    "name": "QuakePH",
+    "description": "Stay updated with the latest earthquakes in the Philippines."
+  },
+  {
+    "name": "Clinical Trial Radar",
+    "description": "Discover current info on global clinical trials, organizations, diseases, and biomarkers from public & private studies."
+  },
+  {
+    "name": "Career Copilot",
+    "description": "A trusted, always on assistant to help software developers find a better job. Built by Commit.dev."
+  },
+  {
+    "name": "Hubbub",
+    "description": "Local health risk & safety guidance for COVID-19, Flu, RSV and more in the US."
+  },
+  {
+    "name": "Savvy Trader AI",
+    "description": "Realtime stock, crypto and other investment data."
+  },
+  {
+    "name": "Local by GoodCall",
+    "description": "Discover and support restaurants, shops & services near you. 🍽️ 🛍️ 🔧"
+  },
+  {
+    "name": "Instacart",
+    "description": "What’s cookin'? Ask about recipes, meal plans, & more -- and get ingredients delivered from 40,000+ stores!"
+  },
+  {
+    "name": "Noteable",
+    "description": "Create notebooks in Python, SQL, and Markdown to explore data, visualize, and share notebooks with everyone."
+  },
+  {
+    "name": "C3 Glide",
+    "description": "Get live aviation data for pilots. Ask questions about METARs, TAFs, NOTAMs for flight planning."
+  },
+  {
+    "name": "OpenTable",
+    "description": "Allows you to search for restaurants available for booking dining experiences"
+  },
+  {
+    "name": "Wahi",
+    "description": "Hey Ontario, ask and get so in the know on the latest listings, property insights and more."
+  },
+  {
+    "name": "Shimmer: Nutrition Coach",
+    "description": "Track meals & gain insights for a healthier lifestyle from 1m+ restaurants & grocery stores."
+  },
+  {
+    "name": "edX",
+    "description": "Find courses and content from leading universities to expand your knowledge at any level."
+  },
+  {
+    "name": "KalendarAI",
+    "description": "KalendarAI sales agents generate revenue with potential customers from 200+ million companies globally."
+  },
+  {
+    "name": "DEV Community",
+    "description": "Plugin for recommending articles or users from DEV Community."
+  },
+  {
+    "name": "Zillow",
+    "description": "Your real estate assistant is here! Search listings, view property details, and get home with Zillow."
+  },
+  {
+    "name": "BuyWisely",
+    "description": "Compare Prices & Discover the Latest Offers from thousands of online shops in Australia."
+  },
+  {
+    "name": "Penrose Analyst",
+    "description": "Search global news and research papers. Summarize Arxiv.org links. Ask me for the latest news!"
+  },
+  {
+    "name": "Speechki",
+    "description": "The easiest way to convert texts to ready-to-use audio — download link, audio player page, or embed!"
+  },
+  {
+    "name": "AskYourPDF",
+    "description": "Unlock the power of your PDFs!, dive into your documents, find answers, and bring information to your fingertips."
+  },
+  {
+    "name": "Change",
+    "description": "Discover impactful nonprofits to support in your community and beyond."
+  },
+  {
+    "name": "Crafty Clues",
+    "description": "Guess the words that the AI craftily clues for you. Add restrictions to make the game more interesting!"
+  },
+  {
+    "name": "Website Performance",
+    "description": "Measure key metrics about your website - performance, accessibility, best practices, SEO, PWA."
+  },
+  {
+    "name": "Shop",
+    "description": "Search for millions of products from the world's greatest brands."
+  },
+  {
+    "name": "Bramework",
+    "description": "Find keywords, generate content briefs, perform SEO analysis, and extract SEO information."
+  },
+  {
+    "name": "There's An AI For That",
+    "description": "Find the right AI tools for any use case, from the world's largest database of AI tools."
+  },
+  {
+    "name": "RoboAd",
+    "description": "Your AI powered Ad Assistant!"
+  },
+  {
+    "name": "AITickerChat",
+    "description": "Retrieve USA stock insights from SEC filings as well as Earnings Call Transcripts."
+  },
+  {
+    "name": "Scraper",
+    "description": "Scrape content from webpages by providing a URL."
+  },
+  {
+    "name": "UK Latest News",
+    "description": "Get the latest news stories from the UK's top news outlets including BBC News, Sky News, The Independent, and others."
+  },
+  {
+    "name": "Giftwrap",
+    "description": "Ask about gift ideas for any occasion and recipient. Get it wrapped and delivered, no address needed."
+  },
+  {
+    "name": "One Word Domains",
+    "description": "Check the availability of a domain and compare prices across different registrars."
+  },
+  {
+    "name": "Creature Generator",
+    "description": "Creates a random creature and an image it for use in role playing games."
+  },
+  {
+    "name": "Open Lecture",
+    "description": "Discover and access the right moments in open course lectures for targeted learning."
+  },
+  {
+    "name": "Magnetis",
+    "description": "Magnetis is a digital wealth manager. Get updated data on portfolios returns and allocations. Ask me about Magnetis."
+  },
+  {
+    "name": "Coupert",
+    "description": "Search for the internet’s best coupons from thousands of online stores."
+  },
+  {
+    "name": "BizToc",
+    "description": "Search BizToc for business & finance news."
+  },
+  {
+    "name": "Tabelog",
+    "description": "Allows you to find restaurants in Japan that have availability for reservations."
+  },
+  {
+    "name": "Photorealistic",
+    "description": "Generate Photorealistic prompts for Midjourney."
+  },
+  {
+    "name": "Yabble",
+    "description": "Create insights instantly. Any audience. Any question. Yabble it."
+  },
+  {
+    "name": "Access Link",
+    "description": "Access any links on the web and get the information you need."
+  },
+  {
+    "name": "Comic Finder",
+    "description": "A plugin that finds a relevant comic given a description. Currently supports XKCD and SMBC comics."
+  },
+  {
+    "name": "Algorithma",
+    "description": "Shape your virtual life with in this immersive life simulator game to begin Type /start to begin."
+  },
+  {
+    "name": "Tomorrow.io Weather",
+    "description": "Predicting, planning, and adapting to the weather forecast via contextualized chat-based insights."
+  },
+  {
+    "name": "Zumper Rental Search",
+    "description": "Find a rental home in the US and Canada."
+  },
+  {
+    "name": "Giga Tutor",
+    "description": "Giga is your AI powered personalised tutor, it keeps the answers to your questions personalised."
+  },
+  {
+    "name": "Currency Converter",
+    "description": "Convert currencies based on real-time rates."
+  },
+  {
+    "name": "FiscalNote",
+    "description": "FiscalNote enables access to select market-leading, real-time data sets for legal, political, and regulatory information"
+  },
+  {
+    "name": "Golden",
+    "description": "Get current factual data on companies from the Golden knowledge graph."
+  },
+  {
+    "name": "KeyMate.AI Search",
+    "description": "Search the web by using a Custom Search Engine with KeyMate.AI, your AI-powered web search engine."
+  },
+  {
+    "name": "Kraftful",
+    "description": "Your product development coach. Ask about best practices. Get top gurus’ product thinking."
+  },
+  {
+    "name": "SEO.app",
+    "description": "Your personal SEO assistant for content marketing."
+  },
+  {
+    "name": "Planfit",
+    "description": "Get your tailored workout plan and instructions with videos - AI-powered Workout Coach, Planfit."
+  },
+  {
+    "name": "Polarr",
+    "description": "Search Polarr's massive pool of user generated filters to make your photos and videos perfect."
+  },
+  {
+    "name": "Podcast search",
+    "description": "This tool explores podcasts from PodcastIndex.org, a platform for decentralized audio content discovery."
+  },
+  {
+    "name": "Redfin",
+    "description": "Have questions about the housing market? Find the answers to help you win in today's market."
+  },
+  {
+    "name": "ABC Music Notation",
+    "description": "Plugin for converting ABC music notation to wav, midi and postscript files."
+  },
+  {
+    "name": "Cloudflare Radar",
+    "description": "Get real-time insights into Internet traffic patterns and threats as seen by Cloudflare."
+  },
+  {
+    "name": "Ambition",
+    "description": "Search millions of jobs near you."
+  },
+  {
+    "name": "CoinCap",
+    "description": "Get cryptocurrency information from CoinCap."
+  },
+  {
+    "name": "WebPilot",
+    "description": "Browse & QA Webpage/PDF/Data. Generate articles, from one or more URLs."
+  },
+  {
+    "name": "Public",
+    "description": "Get real-time and historical market data, including asset prices, news, research, and comprehensive financial analysis."
+  },
+  {
+    "name": "Visla",
+    "description": "Create a short video from public stock footage based on your specified topic."
+  },
+  {
+    "name": "GameBase",
+    "description": "Chat and get game info, database is based on the latest gaming information in 2023, supports multiple platforms."
+  },
+  {
+    "name": "ImageSearch",
+    "description": "Find and display image from unsplash."
+  },
+  {
+    "name": "Open Trivia",
+    "description": "Get trivia questions from various categories and difficulty levels."
+  },
+  {
+    "name": "Manorlead",
+    "description": "Get a list of listings for rent or sale in cities across Canada and the US based on your search criteria."
+  },
+  {
+    "name": "Statis Fund Finance",
+    "description": "Financial data tool for analyzing equities. You can get price quotes, analyze moving averages, RSI, and more."
+  },
+  {
+    "name": "Tic Tac Toe",
+    "description": "Playing a game of Tic Tac Toe with varying board sizes. You can submit your move and get the AI's response move."
+  },
+  {
+    "name": "Rentable Apartments",
+    "description": "Get apartment options in a city of your choice, scoped to your needs and budget."
+  },
+  {
+    "name": "VoxScript",
+    "description": "Enables searching of YouTube transcripts, financial data sources, and Google Search results, and more!"
+  },
+  {
+    "name": "Xpapers",
+    "description": "Effortlessly find real academic papers on arXiv. Dive into abstracts, references, and access public PDF URLs."
+  },
+  {
+    "name": "KAYAK",
+    "description": "Search flights, stays & rental cars or get recommendations where you can go on your budget."
+  },
+  {
+    "name": "Trip.com",
+    "description": "Discover the ultimate travel companion - simplify your flight and hotel bookings. Enjoy your effortless trip!"
+  },
+  {
+    "name": "SEO CORE AI",
+    "description": "Use AI to analyze and improve the SEO of a website. Get advice on websites, keywords and competitors."
+  },
+  {
+    "name": "Likewise",
+    "description": "Your media and entertainment companion. Get TV, Movies, Books & Podcast Recommendations."
+  },
+  {
+    "name": "ABCmouse",
+    "description": "Provides fun and educational learning activities for children 2-8 years old."
+  }
+]
+</pre>
+            <h2 id="Wrap-Up"><a href="#Wrap-Up" class="headerlink" title="Wrap-Up"></a>Wrap-Up</h2>
+            <p>OpenAI&#39;s ChatGPT plugin framework shows a lot of promise, and it requires us to entertain many new ideas about how AI will interact with <em>us</em>. I&#39;ve heard people draw comparisons to previous technological advancements, but I have a hard time doing so. This is a new thing, and it&#39;s going to take some time to figure out how to use it.</p>
             <div class="references">
               <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>
               <ol>
@@ -537,10 +1045,16 @@
         </span>
         <span class="author" itemprop="copyrightHolder">Matthew Corven</span>
       </div>
-      <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+      <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
       </div>
     </div>
   </footer>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
   <div class="back-to-top" role="button" aria-label="Back to top">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
@@ -557,6 +1071,7 @@
   <script src="/js/comments.js"></script>
   <script src="/js/utils.js"></script>
   <script src="/js/motion.js"></script>
+  <script src="/js/schemes/muse.js"></script>
   <script src="/js/next-boot.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
   <script src="/js/third-party/search/local-search.js"></script>
@@ -565,8 +1080,8 @@
       "enable": true,
       "theme":
       {
-        "light": "light",
-        "dark": "default"
+        "light": "default",
+        "dark": "dark"
       },
       "version": "7.1.2",
       "options":
@@ -582,12 +1097,34 @@
 
   </script>
   <script src="/js/third-party/tags/mermaid.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
   <script>
     const feedElInnerHTML = `
-                    <svg width="13" height="13" viewBox="-10 -5 1034 1034" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-                        <path fill="#555555" d="M854 175q-27 0 -46 19t-19 45.5t18.5 45t45 18.5t45.5 -18.5t19 -45t-18.5 -45.5t-44.5 -19zM205 192l-34 34q-83 83 -88 154t68 144l82 82q45 46 48.5 78t-33.5 69v0q-16 19 -15.5 44.5t18.5 43.5t43.5 18.5t44.5 -15.5l1 1q25 -25 47 -32t45.5 4.5t53.5 41.5l95 96 q75 74 147.5 70t155.5 -87l33 -34l-71 -72l-18 18q-47 47 -84 47.5t-82 -44.5l-112 -112q-86 -86 -169 -17l-11 -11q35 -42 31.5 -83t-45.5 -82l-100 -101q-31 -31 -40.5 -56.5t1 -51.5t42.5 -59l17 -17zM703 326q-28 0 -46.5 19t-18.5 45.5t18.5 45.5t45 19t45.5 -19 t19 -45.5t-18.5 -45t-44.5 -19.5zM551 477q-27 0 -46 19t-19 45.5t19 45.5t45.5 19t45.5 -19t19 -45.5t-19 -45t-45 -19.5z"></path>
+                    <svg class="feed-json-svg" width="13" height="13" viewBox="-10 -5 1034 1034" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                        <path class="feed-json-svg-path" d="M854 175q-27 0 -46 19t-19 45.5t18.5 45t45 18.5t45.5 -18.5t19 -45t-18.5 -45.5t-44.5 -19zM205 192l-34 34q-83 83 -88 154t68 144l82 82q45 46 48.5 78t-33.5 69v0q-16 19 -15.5 44.5t18.5 43.5t43.5 18.5t44.5 -15.5l1 1q25 -25 47 -32t45.5 4.5t53.5 41.5l95 96 q75 74 147.5 70t155.5 -87l33 -34l-71 -72l-18 18q-47 47 -84 47.5t-82 -44.5l-112 -112q-86 -86 -169 -17l-11 -11q35 -42 31.5 -83t-45.5 -82l-100 -101q-31 -31 -40.5 -56.5t1 -51.5t42.5 -59l17 -17zM703 326q-28 0 -46.5 19t-18.5 45.5t18.5 45.5t45 19t45.5 -19 t19 -45.5t-18.5 -45t-44.5 -19.5zM551 477q-27 0 -46 19t-19 45.5t19 45.5t45.5 19t45.5 -19t19 -45.5t-19 -45t-45 -19.5z"></path>
                     </svg>
                     `;
+
+    function ensureStylesAlreadyInHead()
+    {
+      let styleElement = document.querySelector('style.feed-json-style');
+      if (!styleElement)
+      {
+        styleElement = document.createElement('style');
+        const css = `
+                .feed-json-svg > .feed-json-svg-path {
+                    fill: #555555;
+                }
+                @media (prefers-color-scheme: dark) {
+                    .feed-json-svg > .feed-json-svg-path {
+                        fill: #999999;
+                    }
+                }
+            `;
+        styleElement.innerHTML = css;
+        document.head.appendChild(styleElement);
+      }
+    }
 
     function getFeedElement()
     {
@@ -598,7 +1135,8 @@
       }
       return null;
     }
-    document.addEventListener("DOMContentLoaded", function ()
+
+    function fixUpJsonFeedIcon()
     {
       let intervalId = setInterval(function ()
       {
@@ -608,7 +1146,119 @@
           clearInterval(intervalId);
           anchorElement.innerHTML = feedElInnerHTML;
         }
-      }, 1000);
+      }, 250);
+    }
+
+    function camelCaseToSentence(str)
+    {
+      return str.replace(/([A-Z])/g, ' $1').replace(/^./, function (str)
+      {
+        return str.toUpperCase();
+      });
+    }
+
+    function convertObject(dataObject)
+    {
+      if (dataObject.length === 0) return {
+        headings: [],
+        data: []
+      };
+      let obj = {
+        // Quickly get the headings
+        headings: Object.keys(dataObject[0]).map(k => camelCaseToSentence(k)),
+        // data array
+        data: []
+      };
+      const len = dataObject.length;
+      // Loop over the objects to get the values
+      for (let i = 0; i < len; i++)
+      {
+        obj.data[i] = [];
+        for (let p in dataObject[i])
+        {
+          if (dataObject[i].hasOwnProperty(p))
+          {
+            obj.data[i].push(dataObject[i][p]);
+          }
+        }
+      }
+      return obj
+    };
+
+    function renderAnyJsonTables()
+    {
+      const jsonTableDefs = Array.from(document.querySelectorAll('.json-object-array-to-table'));
+      jsonTableDefs.forEach((rawJsonContainer) =>
+      {
+        const defName = rawJsonContainer.getAttribute('data-name');
+        const sortBy = rawJsonContainer.getAttribute('data-sort-by-property');
+        const sortDirection = rawJsonContainer.getAttribute('data-sort-direction');
+        const json = JSON.parse(rawJsonContainer.innerText);
+        const table = document.createElement('table');
+        // const thead = document.createElement('thead');
+        // const tbody = document.createElement('tbody');
+        // const headerRow = document.createElement('tr');
+        // const headerRowKeys = Object.keys(json[0]);
+        // Sort json if sortBy is defined and string type, else json remains unchanged. If sortDirection is also defined, use it. If not, default to ascending.
+        if (sortBy && typeof sortBy === 'string')
+        {
+          if (sortDirection && typeof sortDirection === 'string')
+          {
+            json.sort((a, b) =>
+            {
+              if (sortDirection === 'desc')
+              {
+                return b[sortBy].localeCompare(a[sortBy]);
+              }
+              return a[sortBy].localeCompare(b[sortBy]);
+            });
+          }
+          else
+          {
+            json.sort((a, b) =>
+            {
+              return a[sortBy].localeCompare(b[sortBy]);
+            });
+          }
+        }
+        // headerRowKeys.forEach((key) => {
+        //     const th = document.createElement('th');
+        //     th.innerText = camelCaseToSentence(key);
+        //     headerRow.appendChild(th);
+        // });
+        // thead.appendChild(headerRow);
+        // table.appendChild(thead);
+        // json.forEach((row) => {
+        //     const tr = document.createElement('tr');
+        //     headerRowKeys.forEach((key) => {
+        //         const td = document.createElement('td');
+        //         td.innerText = row[key];
+        //         td.style.textAlign = 'initial';
+        //         tr.appendChild(td);
+        //     });
+        //     tbody.appendChild(tr);
+        // });
+        // table.appendChild(tbody);
+        // rawJsonContainer.parentElement.replaceChild(table, rawJsonContainer);
+        rawJsonContainer.parentElement.replaceChild(table, rawJsonContainer);
+        const convertedObject = convertObject(json);
+        const dataTable = new simpleDatatables.DataTable(table,
+        {
+          data: convertedObject,
+          searchable: true,
+          fixedHeight: true,
+        });
+        const counterLabel = document.querySelector('span[for="chat-gpt-plugins-list-count"]');
+        if (counterLabel)
+        {
+          counterLabel.innerText = json.length;
+        }
+      });
+    }
+    document.addEventListener("DOMContentLoaded", function ()
+    {
+      ensureStylesAlreadyInHead();
+      renderAnyJsonTables();
     });
 
   </script>
