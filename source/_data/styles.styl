@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Spline+Sans+Mono&display=swap');
+
+:root {
+    --blue: #046DB9
+    --white: #FFFFFF
+    --off-white: #F5F5F5
+    --black: #000000
+    --lightgrey: #E0E2E4
+    --gray: #BCC0C5
+
+    --body-bg-color: #E0E2E4;
+    --content-bg-color: var(--white);
+    --theme-color: #000000;
+    --highlight-foreground: var(--off-white);
+    --highlight-background: var(--black);
+}
+
+.hljs-section, .hljs-title {
+    color: #c90000;
+    font-weight: 700;
+}
+
+.hljs-deletion, .hljs-number, .hljs-quote, .hljs-selector-class, .hljs-selector-id, .hljs-string, .hljs-template-tag, .hljs-type {
+    color: #c90000;
+}
+
+.hljs-addition, .hljs-built_in, .hljs-bullet, .hljs-code {
+    color: #c90000;
+}
+
+.hljs-meta {
+    color: #0d88c5;
+}
+
+.hljs-comment {
+    color: #8f9393;
+}
+
+.mermaid > svg {
+    background-color: var(--white);
+    padding: 1em 0;
+}
+
+.logo-line {
+    background-color: var(--blue);
+}
+
+.menu-item a:hover, .menu-item a.menu-item-active {
+    background: var(--menu-item-bg-color);
+}
+
+.post-body > h1,
+.post-body > h2,
+.post-body > h3,
+.post-body > h4,
+.post-body > h5,
+.post-body > h6 {
+    border-bottom: var(--white) 0.15em solid;
+    padding: 0 0.25em;
+}
+
+.posts-expand .post-title-link {
+    font-weight: 600;
+}
+
+.posts-expand .post-title-link::before {
+    background: var(--blue);
+}
+
+.posts-expand .post-title {
+    font-weight: 600;
+}
+
+.datatable-table th a {
+    border-bottom: none;
+}
+
+.datatable-top,
+.datatable-bottom {
+    font-size: 0.8125em;
+}
+
+.datatable-table tbody td {
+    text-align: initial;
+}
+
+.datatable-pagination a {
+    color: var(--black) !important;
+    border-radius: 2px !important;
+    padding: 0 10px !important;
+    transition: background-color 0.2s ease-in-out !important;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --body-bg-color: #323131;
+        --content-bg-color: var(--black);
+    }
+
+    a.github-corner > svg > path {
+        fill: var(--white);
+    }
+
+    a.github-corner > svg > path.octo-arm,
+    a.github-corner > svg > path.octo-body {
+        fill: var(--black);
+    }
+
+    .main .column {
+        background-color: #161b22;
+    }
+
+    header .menu .menu-item a {
+        color: var(--off-white);
+    }
+
+    header .menu .menu-item a.menu-item-active {
+        color: var(--off-white);
+    }
+
+    .site-meta .site-title {
+        color: var(--off-white);
+    }
+
+    .posts-expand .post-tags a {
+        color: var(--off-white);
+    }
+
+    .posts-expand .post-tags a:hover {
+        background: #b3b3b3;
+    }
+
+    .posts-expand .post-tags a {
+        border-top-right-radius: 0.45em;
+        border-bottom-right-radius: 0.45em;
+    }
+
+    .footer {
+        color: var(--off-white);
+    }
+
+    .footer a {
+        color: var(--white);
+    }
+
+    .mermaid > svg {
+        background-color: #282828;
+    }
+
+    .actor-man circle {
+        fill: #282828 !important;
+    }
+
+    .datatable-pagination a {
+        color: var(--off-white) !important;
+    }
+
+    .datatable-pagination .datatable-active a,
+    .datatable-pagination .datatable-active a:focus,
+    .datatable-pagination .datatable-active a:hover {
+        background-color: var(--menu-item-bg-color) !important;
+        color: var(--off-white);
+    }
+
+    .datatable-pagination a:hover {
+        background-color: var(--menu-item-bg-color) !important;
+    }
+}

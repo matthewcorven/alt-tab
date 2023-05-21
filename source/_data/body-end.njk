@@ -1,9 +1,30 @@
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
 <script>
     const feedElInnerHTML = `
-                    <svg width="13" height="13" viewBox="-10 -5 1034 1034" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-                        <path fill="#555555" d="M854 175q-27 0 -46 19t-19 45.5t18.5 45t45 18.5t45.5 -18.5t19 -45t-18.5 -45.5t-44.5 -19zM205 192l-34 34q-83 83 -88 154t68 144l82 82q45 46 48.5 78t-33.5 69v0q-16 19 -15.5 44.5t18.5 43.5t43.5 18.5t44.5 -15.5l1 1q25 -25 47 -32t45.5 4.5t53.5 41.5l95 96 q75 74 147.5 70t155.5 -87l33 -34l-71 -72l-18 18q-47 47 -84 47.5t-82 -44.5l-112 -112q-86 -86 -169 -17l-11 -11q35 -42 31.5 -83t-45.5 -82l-100 -101q-31 -31 -40.5 -56.5t1 -51.5t42.5 -59l17 -17zM703 326q-28 0 -46.5 19t-18.5 45.5t18.5 45.5t45 19t45.5 -19 t19 -45.5t-18.5 -45t-44.5 -19.5zM551 477q-27 0 -46 19t-19 45.5t19 45.5t45.5 19t45.5 -19t19 -45.5t-19 -45t-45 -19.5z"></path>
+                    <svg class="feed-json-svg" width="13" height="13" viewBox="-10 -5 1034 1034" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                        <path class="feed-json-svg-path" d="M854 175q-27 0 -46 19t-19 45.5t18.5 45t45 18.5t45.5 -18.5t19 -45t-18.5 -45.5t-44.5 -19zM205 192l-34 34q-83 83 -88 154t68 144l82 82q45 46 48.5 78t-33.5 69v0q-16 19 -15.5 44.5t18.5 43.5t43.5 18.5t44.5 -15.5l1 1q25 -25 47 -32t45.5 4.5t53.5 41.5l95 96 q75 74 147.5 70t155.5 -87l33 -34l-71 -72l-18 18q-47 47 -84 47.5t-82 -44.5l-112 -112q-86 -86 -169 -17l-11 -11q35 -42 31.5 -83t-45.5 -82l-100 -101q-31 -31 -40.5 -56.5t1 -51.5t42.5 -59l17 -17zM703 326q-28 0 -46.5 19t-18.5 45.5t18.5 45.5t45 19t45.5 -19 t19 -45.5t-18.5 -45t-44.5 -19.5zM551 477q-27 0 -46 19t-19 45.5t19 45.5t45.5 19t45.5 -19t19 -45.5t-19 -45t-45 -19.5z"></path>
                     </svg>
                     `;
+    function ensureStylesAlreadyInHead() { 
+        let styleElement = document.querySelector('style.feed-json-style');
+        if (!styleElement) {
+            styleElement = document.createElement('style');
+            const css = `
+                .feed-json-svg > .feed-json-svg-path {
+                    fill: #555555;
+                }
+                @media (prefers-color-scheme: dark) {
+                    .feed-json-svg > .feed-json-svg-path {
+                        fill: #999999;
+                    }
+                }
+            `;
+                        
+            styleElement.innerHTML = css;
+            document.head.appendChild(styleElement);
+        }
+    }
+
     function getFeedElement() {
         let feedElement = document.querySelector('a[href="/feed.json"]');
         if (feedElement) {
@@ -11,13 +32,114 @@
         }
         return null;
     }
-    document.addEventListener("DOMContentLoaded", function () {
+    function fixUpJsonFeedIcon() {
         let intervalId = setInterval(function () {
             let anchorElement = getFeedElement();
             if (anchorElement) {
                 clearInterval(intervalId);
                 anchorElement.innerHTML = feedElInnerHTML;
             }
-        }, 1000);
+        }, 250);
+    }
+    function camelCaseToSentence(str) {
+        return str
+            .replace(/([A-Z])/g, ' $1')
+            .replace(/^./, function (str) {
+                return str.toUpperCase();
+            });
+    }
+    function convertObject(dataObject) {
+        if (dataObject.length === 0) return {
+            headings: [],
+            data: []
+        };
+
+        let obj = {
+            // Quickly get the headings
+            headings: Object.keys(dataObject[0]).map(k => camelCaseToSentence(k)),
+
+            // data array
+            data: []
+        };
+
+        const len = dataObject.length;
+        // Loop over the objects to get the values
+        for (let i = 0; i < len; i++) {
+            obj.data[i] = [];
+
+            for (let p in dataObject[i]) {
+                if (dataObject[i].hasOwnProperty(p)) {
+                    obj.data[i].push(dataObject[i][p]);
+                }
+            }
+        }
+
+        return obj
+    };
+    function renderAnyJsonTables() {
+        const jsonTableDefs = Array.from(document.querySelectorAll('.json-object-array-to-table'));
+        jsonTableDefs.forEach((rawJsonContainer) => {
+            const defName = rawJsonContainer.getAttribute('data-name');
+            const sortBy = rawJsonContainer.getAttribute('data-sort-by-property');
+            const sortDirection = rawJsonContainer.getAttribute('data-sort-direction');
+            const json = JSON.parse(rawJsonContainer.innerText);
+            const table = document.createElement('table');
+            // const thead = document.createElement('thead');
+            // const tbody = document.createElement('tbody');
+            // const headerRow = document.createElement('tr');
+            // const headerRowKeys = Object.keys(json[0]);
+            // Sort json if sortBy is defined and string type, else json remains unchanged. If sortDirection is also defined, use it. If not, default to ascending.
+            if (sortBy && typeof sortBy === 'string') {
+                if (sortDirection && typeof sortDirection === 'string') {
+                    json.sort((a, b) => {
+                        if (sortDirection === 'desc') {
+                            return b[sortBy].localeCompare(a[sortBy]);
+                        }
+                        return a[sortBy].localeCompare(b[sortBy]);
+                    });
+                } else {
+                    json.sort((a, b) => {
+                        return a[sortBy].localeCompare(b[sortBy]);
+                    });
+                }
+            }
+            // headerRowKeys.forEach((key) => {
+            //     const th = document.createElement('th');
+            //     th.innerText = camelCaseToSentence(key);
+            //     headerRow.appendChild(th);
+            // });
+            // thead.appendChild(headerRow);
+            // table.appendChild(thead);
+            // json.forEach((row) => {
+            //     const tr = document.createElement('tr');
+            //     headerRowKeys.forEach((key) => {
+            //         const td = document.createElement('td');
+            //         td.innerText = row[key];
+            //         td.style.textAlign = 'initial';
+            //         tr.appendChild(td);
+            //     });
+            //     tbody.appendChild(tr);
+            // });
+            // table.appendChild(tbody);
+            // rawJsonContainer.parentElement.replaceChild(table, rawJsonContainer);
+
+            rawJsonContainer.parentElement.replaceChild(table, rawJsonContainer);
+            const convertedObject = convertObject(json);
+
+            const dataTable = new simpleDatatables.DataTable(table, {
+                data: convertedObject,
+                searchable: true,
+                fixedHeight: true,
+            });
+
+            const counterLabel = document.querySelector('span[for="chat-gpt-plugins-list-count"]');
+            if (counterLabel) {
+                counterLabel.innerText = json.length;
+            }
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+        ensureStylesAlreadyInHead();
+        renderAnyJsonTables();
     });
 </script>

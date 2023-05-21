@@ -28,7 +28,7 @@ custom_file_path:
   bodyEnd: source/_data/body-end.njk
   #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
-  #style: source/_data/styles.styl
+  style: source/_data/styles.styl
 
 
 # ---------------------------------------------------------------
@@ -37,8 +37,8 @@ custom_file_path:
 
 # Schemes
 #scheme: Muse
-#scheme: Mist
-scheme: Pisces
+scheme: Mist
+#scheme: Pisces
 #scheme: Gemini
 
 # Dark Mode
@@ -421,7 +421,7 @@ github_banner:
 # ---------------------------------------------------------------
 
 font:
-  enable: false
+  enable: true
 
   # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).
   host:
@@ -434,19 +434,19 @@ font:
   # Global font settings used for all elements inside <body>.
   global:
     external: true
-    family: Lato
+    family: Roboto
     size:
 
   # Font settings for site title (.site-title).
   title:
     external: true
-    family:
+    family: Roboto Mono
     size:
 
   # Font settings for headlines (<h1> to <h6>).
   headings:
     external: true
-    family:
+    family: Montserrat
     size:
 
   # Font settings for posts (.post-body).
@@ -457,7 +457,7 @@ font:
   # Font settings for <code> and code blocks.
   codes:
     external: true
-    family:
+    family: Roboto Mono
 
 
 # ---------------------------------------------------------------
@@ -532,12 +532,12 @@ mermaid:
   version: "7.1.2"
   # Available themes: default | dark | forest | neutral
   theme:
-    light: light
-    dark: default
+    light: default
+    dark: dark
   # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
   options:
     # Avoid a hexo bug so that I can use Class diagrams
-    external_link: false 
+    external_link: false
     #startOnload: true  // default true
 
 
@@ -763,7 +763,7 @@ add_this_id:
 # Google Analytics
 # See: https://analytics.google.com
 google_analytics:
-  tracking_id: # <app_id>
+  # tracking_id: # <app_id>
   # By default, NexT will load an external gtag.js script on your site.
   # If you only need the pageview feature, set the following option to true to get a better performance.
   only_pageview: false

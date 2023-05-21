@@ -835,6 +835,11 @@ hexo-pagination@3.0.0:
   resolved "https://registry.npmjs.org/hexo-pagination/-/hexo-pagination-3.0.0.tgz"
   integrity sha512-8oo1iozloZo7TojPVYg4IxL3SJKCBdSJ908fTlIxIK7TWJIKdYnQlW31+12DBJ0NhVZA/lZisPObGF08wT8fKw==
 
+hexo-post-link@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/hexo-post-link/-/hexo-post-link-1.0.0.tgz#7f4ab945ac81b7a9d1dd09d37fd5c9cd8ed5c82d"
+  integrity sha512-8R8e6HtAOdwsenFQWvuwcpi7clAoo6erMwbAQBRUTazioa/EY0WwRSdfCXmDmqfzxo2C/unJljuU1Uq24OAy9Q==
+
 hexo-renderer-ejs@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/hexo-renderer-ejs/-/hexo-renderer-ejs-2.0.0.tgz"
