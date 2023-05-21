@@ -138,8 +138,17 @@
             }
         });
     }
+    function fixImageSrcs() {
+        // Array.from(document.querySelectorAll('img')).forEach((img) => {
+        //     const src = img.getAttribute('src');
+        //     if (src && src.startsWith('/./')) {
+        //         img.setAttribute('src', src.replace('/./', ''));
+        //     }
+        // });
+    }
     document.addEventListener("DOMContentLoaded", function () {
         ensureStylesAlreadyInHead();
         renderAnyJsonTables();
+        fixImageSrcs();
     });
 </script>
