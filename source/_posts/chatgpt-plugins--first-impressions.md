@@ -149,11 +149,11 @@ By installing your plugin in the previous step, you're providing ChatGPT with th
 
 Let's get the show on the road.  I'd like to know what's on my TODO list (it should be empty at the moment), and I'll add some items afterward:
 
-![2023-05-15T224510](chatgpt-plugins--first-impressions/one.png)
+![2023-05-15T224510](./chatgpt-plugins--first-impressions/one.png)
 
 Okay that's neat.  What happens if I try to add more than one item at a time?
 
-![2023-05-21T132555](chatgpt-plugins--first-impressions/two.png)
+![2023-05-21T132555](./chatgpt-plugins--first-impressions/two.png)
 
 I'm mildly impressed that this prompt did all these things, but I'm less impressed that it required 7 API calls to add 7 items.  Why on earth didn't ChatGPT just send them all in one request?  Because our API doesn't support that in the request model, and ChatGPT is being a good consumer of the API.
 
@@ -229,7 +229,7 @@ Let's summarize the changes we made:
 
 And now we can test it out:
 
-![2023-05-21T132639](chatgpt-plugins--first-impressions/three.png)
+![2023-05-21T132639](./chatgpt-plugins--first-impressions/three.png)
 
 Only one request.  Nice!  Let's flex our new-found muscles and add support for deleting multiple todos.  Our changes will be very similar:
 
@@ -318,23 +318,23 @@ Let's summarize the changes we made:
 
 Let's clear out our TODO list all at once:
 
-![2023-05-21T132724](chatgpt-plugins--first-impressions/four.png)
+![2023-05-21T132724](./chatgpt-plugins--first-impressions/four.png)
 
 I'm pretty forgetful.  For instance, I've been known to duplicate duplicate items to my grocery shopping list.  What would be the outcome with this ChatGPT TODO plugin?
 
-![2023-05-21T132827](chatgpt-plugins--first-impressions/five.png)
+![2023-05-21T132827](./chatgpt-plugins--first-impressions/five.png)
 
 Ugh oh.  Our plugin code disregards the duplicate entry, but as far as ChatGPT is concerned all is well up until the point that it loads again from the plugin and compares to its own internal list. 
 
 The solution is for the plugin to respond to duplicate entry attempts with an informative message for ChatGPT to take into its context:
 
-![2023-05-21T132921](chatgpt-plugins--first-impressions/six.png)
+![2023-05-21T132921](./chatgpt-plugins--first-impressions/six.png)
 
 ChatGPT understands that `dentist` can't be added twice, but I'm not happy with it's mischaracterization "...was already on your list, so I didn't add it again."  Lies!  ChatGPT did indeed try to add `dentist` a second time, and was merely prohibited.  
 
 I can resolve this by informing ChatGPT duplicates should not be added.  This might however result in ChatGPT querying all TODOs before each addition, causing a lot of unnecessary chatter.  Instead I'll tweak the plugin again, this time instruct ChatGPT to update its internal list when conflicts such as this occur:
 
-![2023-05-21T132951](chatgpt-plugins--first-impressions/seven.png)
+![2023-05-21T132951](./chatgpt-plugins--first-impressions/seven.png)
 
 ## The Plugin Store
 
