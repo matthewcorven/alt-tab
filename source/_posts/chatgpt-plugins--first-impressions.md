@@ -37,7 +37,7 @@ At the moment, plugin development is a [*Limited Alpha* behind a wait-list](http
 ## Architecture
 
 ChatGPT plugins are constructed with:
-1. **One or more REST API endpoints** implemented in any language and/or framework you prefer: Node.js, Deno, ASP .NET Controllers or Minimal API, Azure Functions, Ruby on Rails, Rust, Go, [Bip Functions](https://docs.bip.sh/functions/get-started), AWS Lamda, [Wolfram](https://reference.wolfram.com/language/workflow/DeployAWebAPI.html) or whatever else you fancy ([COBOL](https://www.ibm.com/docs/en/SS4SVW_3.0.0/backmatter/pdf.pdf) diehards rejoice!).  Coded APIs aren't the only option either; you can just a easily use a [low-code/no-code](https://www.gartner.com/en/information-technology/glossary/low-code-no-code-development-platform-lcncdp) platform like [Power Apps](https://powerapps.microsoft.com/en-us/), [Power Automate](https://flow.microsoft.com/en-us/), Azure APIM, Azure Logic App, [Data API Builder](https://learn.microsoft.com/en-us/azure/data-api-builder/overview-to-data-api-builder), or [OutSystems](https://www.outsystems.com/blog/posts/low-code-api/).  The only requirement is that your API is accessible via the internet.
+1. **One or more REST API endpoints** implemented in any language and/or framework you prefer: Node.js, Deno, ASP .NET Controllers or Minimal API, Azure Functions, Ruby on Rails, Rust, Go, [Bip Functions](https://docs.bip.sh/functions/get-started), AWS Lamdas, [Wolfram](https://reference.wolfram.com/language/workflow/DeployAWebAPI.html) or whatever else you fancy ([COBOL](https://www.ibm.com/docs/en/SS4SVW_3.0.0/backmatter/pdf.pdf) diehards rejoice!).  Coded APIs aren't the only option either; you can just a easily use a [low-code/no-code](https://www.gartner.com/en/information-technology/glossary/low-code-no-code-development-platform-lcncdp) platform like [Power Apps](https://powerapps.microsoft.com/en-us/), [Power Automate](https://flow.microsoft.com/en-us/), Azure APIM, Azure Logic App, [Data API Builder](https://learn.microsoft.com/en-us/azure/data-api-builder/overview-to-data-api-builder), or [OutSystems](https://www.outsystems.com/blog/posts/low-code-api/).  The only requirement is that your API is accessible via the internet.
    - OpenAI provides a [Python-based "TODO API" plugin](https://github.com/openai/plugins-quickstart) to get you started with local experimentation.  It seems pretty useless until you realize that by tinkering with the inputs and outputs, descriptions, even parameter names, you will begin to witness the power of ChatGPT's language processing capabilities.
 2. **A manifest file** (`yourdomain.com/.well-known/ai-plugin.json`) describing the plugin to ChatGPT.  The contents and structure of this file are likely to change, but the most critical bits are:
    - Plugin name and description (for display in the ChatGPT UI)
@@ -320,25 +320,25 @@ Let's clear out our TODO list all at once:
 
 ![2023-05-21T132724](chatgpt-plugins--first-impressions/four.png)
 
-I'm pretty forgetful.  For instance, I've been known to duplicate duplicate items to my grocery shopping list.  What would be the outcome with this ChatGPT TODO plugin?
+I'm pretty forgetful.  For instance, I've been known to duplicate items on the grocery shopping list.  What would be the outcome with this ChatGPT TODO plugin as it's currently implemented?
 
 ![2023-05-21T132827](chatgpt-plugins--first-impressions/five.png)
 
-Ugh oh.  Our plugin code disregards the duplicate entry, but as far as ChatGPT is concerned all is well up until the point that it loads again from the plugin and compares to its own internal list. 
+Ugh oh.  Our plugin code disregards the duplicate entry, but as far as ChatGPT is concerned all is well up until the point that it loads again from the plugin and compares to its own internal list. We need to provide some clarity to the AI.
 
 The solution is for the plugin to respond to duplicate entry attempts with an informative message for ChatGPT to take into its context:
 
 ![2023-05-21T132921](chatgpt-plugins--first-impressions/six.png)
 
-ChatGPT understands that `dentist` can't be added twice, but I'm not happy with it's mischaracterization "...was already on your list, so I didn't add it again."  Lies!  ChatGPT did indeed try to add `dentist` a second time, and was merely prohibited.  
+ChatGPT understands that `dentist` can't be added twice, but I'm not happy with its mischaracterization "...was already on your list, so I didn't add it again."  Lies!  ChatGPT did indeed try to add `dentist` a second time and was merely prohibited.  
 
-I can resolve this by informing ChatGPT duplicates should not be added.  This might however result in ChatGPT querying all TODOs before each addition, causing a lot of unnecessary chatter.  Instead I'll tweak the plugin again, this time instruct ChatGPT to update its internal list when conflicts such as this occur:
+I can resolve this by informing ChatGPT duplicates should not be added.  This might however result in ChatGPT querying all TODOs before each addition, causing a lot of unnecessary chatter.  Instead, I'll tweak the plugin again, this time instructing ChatGPT to update its internal list when conflicts such as this occur:
 
 ![2023-05-21T132951](chatgpt-plugins--first-impressions/seven.png)
 
 ## The Plugin Store
 
-What I've demonstrated here is small potatoes compared to what's possible.  ChatGPT provides a plugin store, much like you'd find on any app store.  In the few days it's taken me to write this blob post, I've seen a lot of new plugins pop up.  At the time of this writing, there are <span for="chat-gpt-plugins-list-count">0</span> plugins available to me as a registered developer:
+ChatGPT's Plugin Store already has a wide variety of offerings.  In the few days it's taken me to write this blob post, I've seen a lot of new plugins pop up.  At the time of this writing, there are <span for="chat-gpt-plugins-list-count">0</span> plugins available to me as a registered developer:
 
 <pre name="chat-gpt-plugins-list" class="json-object-array-to-table" style="display: none;" data-sort-by-property="name">
 [
@@ -847,14 +847,20 @@ What I've demonstrated here is small potatoes compared to what's possible.  Chat
 
 ## Wrap-Up
 
+What I've demonstrated here is small potatoes compared to what's possible.  From within ChatGPT's UI, we can now make dinner reservations, get prices on flights, and even get a list of apartments for rent in a city of our choice.  And that's just the beginning.
+
 OpenAI's ChatGPT plugin framework shows a lot of promise, and it requires us to entertain many new ideas about how AI will interact with *us*.  I've heard people draw comparisons to previous technological advancements, but I have a hard time doing so.  This is a new thing, and it's going to take some time to figure out how to use it.
+
+Returning from the philosophical, I see this use of plugins as a way to make ChatGPT more useful in the short term.  It's a way to get more out of the platform without having to wait for OpenAI to build it.  And it's a way to get more out of the platform by using existing REST APIs that we're already familiar with.
+
+There's a gap, though.  The plugins are only available from within the ChatGPT UI.  If you're using the OpenAI's REST API or one of the library abstractions, you're out of luck for now.  Share your voice on the matter and stay tuned to [updates from the OpenAI team to community feedback](https://community.openai.com/t/feedback-add-plugin-model-plugins-to-the-developer-api/145970).
 
 <div class="references">
 
 ## References
 
 1. [**OpenAI Platform** docs site](https://platform.openai.com/docs/introduction/overview) is a must-read on all matters of interacting with OpenAI's API.
-   - [**Several more plugin examples**](https://platform.openai.com/docs/plugins/examples) with source code.  Check here for use of OAuth and other authentication methods, and giving ChatGPT more memory of conversations as well as semantic search (aka "question answering").
+   - [**Several more plugin examples**](https://platform.openai.com/docs/plugins/examples) with source code.  Check here for use of OAuth and other authentication methods and giving ChatGPT more memory of conversations as well as semantic search (aka "question answering").
    - **Usage Policies** includes a [section on plugins](https://openai.com/policies/usage-policies#plugin-policies).  It's not mentioned in the enclosed changelog, so either it's been there all along or it's a new addition without notice.
 2. [OpenAI Community Forum: "Context length VS Max token VS Maximum length"](https://community.openai.com/t/context-length-vs-max-token-vs-maximum-length/125585)
 
