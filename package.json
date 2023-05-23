@@ -34,6 +34,7 @@
     "hexo-asset-link": "^2.2.1",
     "hexo-broken-links-checker": "^2.1.0",
     "hexo-excerpt-block": "^1.0.0",
+    "hexo-featured-image": "^0.4.3",
     "hexo-feed": "^1.1.1",
     "hexo-generator-searchdb": "^1.4.1",
     "hexo-html-prettify": "^1.1.4"

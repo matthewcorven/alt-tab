@@ -120,6 +120,13 @@ archy@^1.0.0:
   resolved "https://registry.npmjs.org/archy/-/archy-1.0.0.tgz"
   integrity sha512-Xg+9RwCg/0p32teKdGMPTPnVXKD0w3DfHnFTficozsAgsvq2XenPJq/MYpzzQ/v8zrOyJn6Ds39VA4JIDwFfqw==
 
+argparse@^1.0.7:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/argparse/-/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
+  integrity sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==
+  dependencies:
+    sprintf-js "~1.0.2"
+
 argparse@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/argparse/-/argparse-2.0.1.tgz"
@@ -518,6 +525,11 @@ escape-html@~1.0.3:
   resolved "https://registry.npmjs.org/escape-html/-/escape-html-1.0.3.tgz"
   integrity sha512-NiSupZ4OeuGwr68lGIeym/ksIZMJodUGOSCZ/FSnTxcrekbvqrgdUxlJOMpijaKZVjAJrWrGs/6Jy8OMuyj9ow==
 
+escape-string-regexp@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
+  integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
+
 escodegen@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/escodegen/-/escodegen-2.0.0.tgz"
@@ -530,7 +542,7 @@ escodegen@^2.0.0:
   optionalDependencies:
     source-map "~0.6.1"
 
-esprima@^4.0.1:
+esprima@^4.0.0, esprima@^4.0.1:
   version "4.0.1"
   resolved "https://registry.npmjs.org/esprima/-/esprima-4.0.1.tgz"
   integrity sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==
@@ -709,6 +721,14 @@ hexo-excerpt-block@^1.0.0:
   resolved "https://registry.yarnpkg.com/hexo-excerpt-block/-/hexo-excerpt-block-1.0.0.tgz#1e5e4d20768867e4776ee8aea31ab4044a2df29d"
   integrity sha512-nO29GJ5FO8jPjFpbrvvo5ib1xHAtN7jq41h4YuzC3z02C4nvU2bNPUUaPCyh0M24/zPD3kwRIVFfuupsL9r4jQ==
 
+hexo-featured-image@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/hexo-featured-image/-/hexo-featured-image-0.4.3.tgz#8ff0d2210819aa21219ea6b97dc9ceeed0056d02"
+  integrity sha512-QqU2Dw+idP/ZMbN3IV7ZPZarAdjBMWSmcpaSbqv5kMMp1eRzhdXoU60nshlJpxf8QtIFVE2zUuSM20WkwX4txQ==
+  dependencies:
+    hexo-front-matter "^1.0.0"
+    hexo-fs "^2.0.0"
+
 hexo-feed@^1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/hexo-feed/-/hexo-feed-1.1.1.tgz"
@@ -732,12 +752,29 @@ hexo-fontawesome@^2.3.0:
     "@fortawesome/free-regular-svg-icons" "^5.15.4"
     "@fortawesome/free-solid-svg-icons" "^5.15.4"
 
+hexo-front-matter@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/hexo-front-matter/-/hexo-front-matter-1.0.0.tgz#0b48b1c1ed143e8cb25b3b223a9037385d910655"
+  integrity sha512-Hn8IIzgWWnxYTekrjnA0rxwWMoQHifyrxKMqVibmFaRKf4AQ2V6Xo13Jiso6CDwYfS+OdA41QS5DG1Y+QXA5gw==
+  dependencies:
+    js-yaml "^3.13.1"
+
 hexo-front-matter@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/hexo-front-matter/-/hexo-front-matter-3.0.0.tgz"
   integrity sha512-hSQTPUmB/BCe1BFYmXRkPyLk8rqbBqHCQq+rjwwOJuEfOADrFaVK2VPZb90tJzPyXE1xSxpgCxE/AZq0CyTVwg==
   dependencies:
     js-yaml "^4.1.0"
+
+hexo-fs@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/hexo-fs/-/hexo-fs-2.0.1.tgz#abbdcadec067a8326d14b48e101935cf1a4f48e9"
+  integrity sha512-IgAhdjYN3GCluy2MSeeX+F/RkyVsjjzZO7Bbhj3aYoSBqcJhJsR1Nz+Powp26siQPuIFLNNYjqmfPbVg2vg+Mg==
+  dependencies:
+    bluebird "^3.5.1"
+    chokidar "^3.0.0"
+    escape-string-regexp "^2.0.0"
+    graceful-fs "^4.1.11"
 
 hexo-fs@^3.0.1, hexo-fs@^3.1.0:
   version "3.1.0"
@@ -1102,6 +1139,14 @@ js-yaml-js-types@^1.0.0:
   integrity sha512-5tpfyORs8OQ43alNERbWfYRCtWgykvzYgY46fUhrQi2+kS7N0NuuFYLZ/IrfmVm5muLTndeMublgraXiFRjEPw==
   dependencies:
     esprima "^4.0.1"
+
+js-yaml@^3.13.1:
+  version "3.14.1"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.1.tgz#dae812fdb3825fa306609a8717383c50c36a0537"
+  integrity sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==
+  dependencies:
+    argparse "^1.0.7"
+    esprima "^4.0.0"
 
 js-yaml@^4.1.0:
   version "4.1.0"
@@ -1633,6 +1678,11 @@ sprintf-js@^1.0.3:
   version "1.1.2"
   resolved "https://registry.npmjs.org/sprintf-js/-/sprintf-js-1.1.2.tgz"
   integrity sha512-VE0SOVEHCk7Qc8ulkWw3ntAzXuqf7S2lvwQaDLRnUeIEaKNQJzV6BwmLKhOqT61aGhfUMrXeaBk+oDGCzvhcug==
+
+sprintf-js@~1.0.2:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
+  integrity sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==
 
 statuses@2.0.1:
   version "2.0.1"

@@ -8,14 +8,10 @@ toc:
   enable: true
   number: true
   max_depth: 3
-reward_settings:
-  enable: false
-  comment: Buy me a coffee
 quicklink:
   enable: true
   delay: true
   timeout: 3000
-  priority: true
 ---
 
 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center">
@@ -23,6 +19,11 @@ quicklink:
 </div>
 
 ## Shiny New Toy
+
+{% note primary no-icon %}
+**TL;DR:** ChatGPT is a fun toy that is getting more powerful by the day.  The plugin framework is a shiny new toy that promises to make ChatGPT a powerful tool for automating tasks and connecting to the internet.  I'm excited to see where it goes.
+
+{% endnote %}
 
 **Enter Stage Right:** ChatGPT's initial plugin framework release promises to dazzle by connecting it to the internet via REST APIs.  This is a big deal, and I'm excited to see where it goes.  I've been tinkering with the plugin framework for a few days now, and I'm impressed with the simplicity of the implementation and the power of the results.  I'm also impressed with the speed at which OpenAI is iterating on the framework, and I'm excited to see what the future holds.  I'm not sure if I'm more excited about the possibilities for ChatGPT or the possibilities for the plugin framework itself.  I'm sure both will be amazing.  
 
