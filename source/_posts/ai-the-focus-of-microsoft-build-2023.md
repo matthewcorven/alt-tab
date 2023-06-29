@@ -4,7 +4,6 @@ slug: chatgpt-plugins--first-impressions
 date: 2023-05-23
 tags: [Microsoft, Azure, Azure AI Studio, LangChain, Semantic Kernel, ChatGPT, OpenAI, AI, LLM, GPT-4, Plugins, Bing, Microsoft Teams, Microsoft 365]
 categories: [AI]
-thumbnail: microsoft-build-2023.jpg
 toc:
   enable: true
   number: true
