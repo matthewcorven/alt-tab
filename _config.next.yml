@@ -163,8 +163,8 @@ social:
   #YouTube: https://youtube.com/yourname || fab fa-youtube
   #Instagram: https://instagram.com/yourname || fab fa-instagram
   #Skype: skype:yourname?call|chat || fab fa-skype
-  Atom: /rss.xml || fas fa-rss-square
-  RSS: /atom.xml || fas fa-rss
+  RSS: /rss.xml || fas fa-rss-square
+  Atom: /atom.xml || fas fa-rss
   JSON Feed: /feed.json || fas fa-rss
 
 social_icons:
