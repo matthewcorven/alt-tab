@@ -675,10 +675,10 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-hexo-asset-link@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/hexo-asset-link/-/hexo-asset-link-2.2.1.tgz#2665141a9324f02d20c4612df3b913d6c2cb2159"
-  integrity sha512-YQxqkX+fUmzAjgbiExr1paMtfBuWuMTzhUTma+eruIybdvi9mL90Hz0sYEI8dfTl1JoJbl9Jjp5hrC5/saZwUw==
+hexo-asset-link@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/hexo-asset-link/-/hexo-asset-link-2.2.2.tgz#1985df3d982778af1a97d664b04cd04b20dfe3d0"
+  integrity sha512-wJDngeQXJic2CStUVIKqDdV16Fkh5pwliV8hEyLjeBfY7YoYIEeuDsY+n2VPRIXomaw4GnFG6jVVBne7lrHY1w==
 
 hexo-broken-links-checker@^2.1.0:
   version "2.1.0"
