@@ -147,3 +147,5 @@ To my delight, the app ran without a hiccup, and did exactly what I asked.
 Effectively starting and finishing the implementation before I'd even had a chance to search `"webcam"` on [npmjs.com](https://www.npmjs.com/), I spent my time amused instead of challenged.
 
 I'm not sure if I'll use this code for anything, but it was a fun anyway.
+
+Source code for this project is available on [GitHub](https://github.com/matthewcorven/ai-coder-makes-qr-code-reader)
