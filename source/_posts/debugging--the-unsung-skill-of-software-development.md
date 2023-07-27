@@ -50,7 +50,7 @@ If the issue requires a convoluted process to reproduce, pause and think if it c
 Having a new local branch for each attempt can be a lifesaver when you need to revisit a previously discarded trial. This prevents the dreaded scenario of having to recreate changes you've painstakingly undone.
 
 1.  **Celebrate the Small Wins**
-Each little discovery that helps shed light on the issue is a win. Celebrate it by walking away. Allow your mind to absorb the information as you shifting your focus for a bit before diving back in.
+Each little discovery that helps shed light on the issue is a win. Celebrate it by walking away. Allow your mind to absorb the information as you shift your focus for a bit before diving back in.
 
 ## Wrap-Up
 

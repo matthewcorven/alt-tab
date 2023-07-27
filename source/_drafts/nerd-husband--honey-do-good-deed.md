@@ -1,15 +1,17 @@
 ---
 title: Nerd Husband - Honey-do Good Deed
-tags: nerd husband raspberrypi point-of-sale
+tags: nerd husband family raspberrypi dotnet authentication media marketing remote-access remote-deployment
 ---
 
-We nerd husbands are always looking for ways to make our wives' lives easier.
+We nerds are always looking for ways to make our family members and friends lives easier and our own - by extension - more enjoyable.  We're also looking for ways to justify our nerdiness.  This is the story of how I did both.  Finally.  For once.
 
-I've been working on a point of sale system for my wife's business.  She had been wanting a digital display to give her dog grooming clients a personal and professional touch, displaying short autobiographies of her staff intermingled with reminders to book ahead; Future suggested booking dates were also to be displayed as quick reference, calculated automatically based on awareness of days the business is scheduled to be closed.  The display was to be mounted on the wall, and the content was to be updated remotely and as self-sufficent as possible, right down to the daily updates of the screen itself.
+I've been working on a point-of-sale display for my wife's business.  She had been wanting a new professional touch to the entry, displaying to clients a mix of short messages provided by the staff alongside reminders to book the next appointment.  Updating the display would need to be accessible to a few trained staff as well as my wife.  If they needed to add a new client-facing message, a few recent pictures of before/after grooming, or just correcting a spelling mistake, the process of updating content needed to be straight-forward to users with minimal training time.  Additionally, the on-screen appointment reminders would need to automatically update daily with an awareness of the business calendar of closed days such as weekends, holidays, team building days, and so on.  All of this also needs to be accessible from outside the business from any decent web browser nearby, because life is busy and raising kids is HARD!
 
 ## Phase 1: Idle thought, minimal progress
 
-Guilty as charged.  It took a few months to stop pinballing ideas and throwing them away just as quickly.  In any case by the end of it all I was clear on the hardware.  I had previously made Raspberry Pi boards a part of the home that we all rely on, such as the pihole that has dutifully provided amazing advertising blocking for the entire home network for years.  So I was familiar with the hardware over a few generations of Pis, and comfortable with the idea of using one for this project.  Like any other self-respecting nerd-dad with no time, I had an unused Raspberry Pi 4 B from another project that never got off the ground.  For the display I selected an inexpensive 12" external LCD, ensuring that it supported VESA mounting (which turned out to be uncommon).
+Guilty as charged.  It took a few months to stop pinballing ideas and throwing them away just as quickly.  Eventually, the starting point emerged.
+
+I had previously integrated Raspberry Pi boards around our home to provide handy services, such as the pihole that has dutifully provided amazing advertising blocking for the entire home network for years.  So I was familiar with the hardware over a few generations of Pis, and comfortable with the idea of using one for this project.  Like any other self-respecting nerd-dad, I had an unused Raspberry Pi 4+ B from another project that never got off the ground.  For the display I selected an inexpensive 12" external LCD, ensuring it supported VESA mounting to provide options for the physical install.  VESA is uncommon for portable USB-driven displays, but I found one that fit the bill.
 
 Aside from mounting and running cables, the hardware was pretty much ready to go.  I had a few ideas for the software, and went on to try a handful of homebrew approaches before leaning into an available open-source option.
 
@@ -96,6 +98,54 @@ sudo apt remove pulseaudio pulseaudio-utils pulseaudio-module-bluetooth
 
 ## Phase 15: Approach challenge - How do I minimize the cost of the development?
 
+## Development Host Setup
+
+### SSH
+
+Debugging requires SSH access to the Raspberry Pi, using so-called "Passwordless SSH" but providing the Pi with a public SSH key from the development host; This is necessary because OpenSSH does not support passing the password over command line (for obvious security reasons).
+
+1. Ensure the development host has a private/public key pair (check in `~/.ssh/` regardless of OS).  If not, generate one:
+
+```bash
+ssh-keygen -t rsa -b 4096 -C
+```
+2. Copy the public key to the Raspberry Pi:
+
+```bash
+ssh-copy-id screen@storedisplay.local
+# or
+cat ~\.ssh\id_rsa.pub | ssh screen@storedisplay.local 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys'
+```
+3. Remembering the private key passphrase [Windows]
+
+You should not use the Open SSH client that comes with Git for Windows. Instead, Windows 10+ has its own implementation of Open SSH that is integrated with the system. To achieve this:
+
+1. Start the `ssh-agent` from Windows Services: 
+  - Type `Services` in the `Start Menu` or `Win+R` and then type `services.msc` to launch the Services window;
+  - Find the `OpenSSH Authentication Agent` in the list and double click on it;
+  - In the `OpenSSH Authentication Agent Properties` window that appears, choose `Automatic` from the `Startup type:` dropdown and click `Start` from `Service status:`. Make sure it now says `Service status: Running`.
+
+2. Configure Git to use the Windows 10 implementation of OpenSSH by issuing the following command in Powershell: 
+```
+git config --global core.sshCommand C:/Windows/System32/OpenSSH/ssh.exe
+```
+
+3. Configure SSH to automatically add the keys to the agent on startup by editing the `config` file found at `$HOME\.ssh\config` (full path - `C:\Users\%YOUR_USERNAME%\.ssh\config`), and add the following lines:
+```
+Host *
+	AddKeysToAgent yes
+	IdentitiesOnly yes
+```
+
+4. Add your SSH key to the `ssh-agent` by issuing the `ssh-add` command and entering your passphrase:
+```
+ssh-add $HOME/.ssh/id_rsa
+```
+
+5. Restart powershell and you should be able to connect to the Raspberry Pi without having to enter the passphrase again.  VSCode and other tools which ride on the command line will also be able to connect to the Raspberry Pi without having to enter the passphrase again.
+
+> NOTE: If at any point you get a message "**Host key verification failed**", likely after having already connected to the Pi using a password and opting to use & remember the fingerprint, it's because you're in a funky mixed state.  You'll need to remove the "passworded" key from your dev machine's `.ssh/known_hosts` file.  You can do this by opening the file in a text editor and removing the line that contains the IP address or hostname of the Pi (or simply run `ssh-keygen -R storedisplay.local`).  Then you can reconnect to the Pi and you'll be prompted to accept the fingerprint again.  
+
 
 ## Setup Process (Provisioning a new master image)
 
@@ -120,7 +170,7 @@ sudo apt remove pulseaudio pulseaudio-utils pulseaudio-module-bluetooth
     2. Add `dtparam=audio=off`
     3. Add `camera_auto_detect=0`
     4. Add `hdmi_blanking=1` (display will be told to turn **off** when Raspberry Pi is off or tells the display to "sleep")
-    5. Set `hdmi_force_hotplug=1` (keep HDMI port active even if no display is detected *yet*)
+    5. Set `hdmi_force_hotplug=1` (keep HDMI port active even if no display is detected *yet*; see section "Phase 7.4: Wake-up Race Condition")
  
 ## Pre-boot checklist
 
@@ -143,6 +193,11 @@ Once logged in:
 sudo apt update
 sudo apt upgrade
 ```
+1. Install ssh-askpass (this will allow us to enter the passphrase for the SSH key once, and then have it cached for the duration of the session):
+```bash
+sudo apt install ssh-askpass
+```
+
 2. Install and setup Samba
 ```bash
 mkdir ~/display_share
@@ -201,16 +256,22 @@ sudo ufw disable
 sudo systemctl stop ufw.service
 sudo ufw allow ssh
 sudo ufw allow 2600/tcp comment 'accept HTTP traffic to Woof REST API'
+sudo ufw allow 2601/tcp comment 'accept HTTPS traffic to Woof REST API'
 sudo systemctl start ufw.service
 sudo systemctl status ufw.service
 sudo ufw enable
 sudo ufw reload
 ```
 
+1. Install ghostscript, which will be used for PDF to PNG conversion
+```bash
+sudo apt install ghostscript
+```
+
 1. Install dotnet SDK
 ```bash
-wget https://download.visualstudio.microsoft.com/download/pr/93db1aea-6913-4cdc-8129-23e3e3de8dd1/4a942a2fbbb6ca6667c01ec414096ee0/dotnet-sdk-8.0.100-preview.5.23303.2-linux-arm64.tar.gz
-mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-8.0.100-preview.5.23303.2-linux-arm64.tar.gz -C $HOME/dotnet
+wget https://download.visualstudio.microsoft.com/download/pr/46626be9-8672-4c2c-b149-3233496e4372/fb49425c9eeb4f05291a9f57250c0e0d/dotnet-sdk-8.0.100-preview.6.23330.14-linux-arm64.tar.gz
+mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-8.0.100-preview.6.23330.14-linux-arm64.tar.gz -C $HOME/dotnet
 
 export DOTNET_ROOT=$HOME/dotnet
 export PATH=$PATH:$HOME/dotnet
@@ -224,7 +285,33 @@ echo 'export FONTCONFIG_PATH=/etc/fonts' >> ~/.bashrc
 
 sudo ln -s ~/dotnet/dotnet /usr/bin/dotnet
 
+1. Install .NET Native AOT [Prerequisites](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/?tabs=net7#prerequisites) for Linux
+```bash
+sudo apt-get install clang zlib1g-dev ghdl
 ```
+
+1. Build specific version of glibc for .NET Native AOT
+```bash
+sudo apt update && sudo apt install gawk bison
+
+cd ~/git
+mkdir sourceware && cd sourceware
+git clone git://sourceware.org/git/glibc.git
+cd glibc
+git checkout glibc-2.4
+mkdir build
+cd build
+export glibc_install="$(pwd)/install"
+../configure --prefix "$glibc_install"
+make -j `nproc` #Then wait for a long time, upwards of XX minutes on a Raspberry Pi 4
+make install -j `nproc`
+```
+
+1. Install Remote Debugger for .NET Core
+```bash
+curl -sSL https://aka.ms/getvsdbgsh | /bin/sh /dev/stdin -v latest -l ~/vsdbg
+```
+
 1. Set up a certification for HTTPS
 ```bash
 sudo apt install libnss3-tools openssl
