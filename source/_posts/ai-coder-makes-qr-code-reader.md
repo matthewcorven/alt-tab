@@ -21,10 +21,11 @@ In my journey to develop a retail point-of-sale advertising display for my wife'
 
 These Generative AI tools have become indispensable to me, significantly enhancing my productivity and efficiency throughout the development process. As a husband and dad with limited time for tinkering, their support has been invaluable. I find myself in a state of flow more often, allowing me to make the most of the precious time I have available.
 
-Regardless of whether I'm asking questions to help gauge the complexity of an idea, double-checking my memory of a concept, asking for the code to a quick functional POC, or working with my code in the editor, GPT-4 has been a great tool to have in my toolbox. Most times it's as accurate as I need it to be, and when it's not, it's still a great starting point.  
+Regardless of whether I'm asking questions to help gauge the complexity of an idea, double-checking my memory of a concept, asking for the code to a quick functional POC, or working with my code in the editor, these AI tools have been great additions to my toolbox. Most times the AI responses are nearly as accurate as I need, and occasionally spot-on.  
 
 Case in point, I was struck with the interest to try developing a simple app that would:
-1. Access the local webcam at an interval
+
+1. Access the local webcam every few seconds.
 2. Scan the image for a valid QR code
 3. Print the code to the console.
  
