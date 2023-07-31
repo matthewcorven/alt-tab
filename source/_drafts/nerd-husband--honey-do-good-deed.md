@@ -147,7 +147,7 @@ ssh-add $HOME/.ssh/id_rsa
 > NOTE: If at any point you get a message "**Host key verification failed**", likely after having already connected to the Pi using a password and opting to use & remember the fingerprint, it's because you're in a funky mixed state.  You'll need to remove the "passworded" key from your dev machine's `.ssh/known_hosts` file.  You can do this by opening the file in a text editor and removing the line that contains the IP address or hostname of the Pi (or simply run `ssh-keygen -R storedisplay.local`).  Then you can reconnect to the Pi and you'll be prompted to accept the fingerprint again.  
 
 
-## Setup Process (Provisioning a new master image)
+## Raspberry Pi Setup Process (Provisioning a new master image)
 
 1. Download and install Raspberry Pi Imager.  
 2. Once open, select "Choose OS" and select "Raspberry Pi OS (64-bit)".  
@@ -161,7 +161,7 @@ ssh-add $HOME/.ssh/id_rsa
 8. Select "Write".  
 9. Once complete, eject re-insert the SD card.  This will allow you to access the boot partition, to change some configuration.
 
-## Configuration
+### Configuration
 
 1. Open the boot partition (`/boot`).  This is the only partition that is accessible from Windows.
 2. Open `config.txt` in a plain text editor.
@@ -172,13 +172,13 @@ ssh-add $HOME/.ssh/id_rsa
     4. Add `hdmi_blanking=1` (display will be told to turn **off** when Raspberry Pi is off or tells the display to "sleep")
     5. Set `hdmi_force_hotplug=1` (keep HDMI port active even if no display is detected *yet*; see section "Phase 7.4: Wake-up Race Condition")
  
-## Pre-boot checklist
+### Pre-boot checklist
 
 1. Connect display to the mini HDMI port ([need an adapter?](https://www.amazon.com/s?k=mini+hdmi+to+hdmi+adapter&sprefix=mini+hdmi+to+%2Caps%2C104&ref=nb_sb_ss_ts-doa-p_3_13)).
 2. Connect keyboard and mouse. 
 3. Connect the "power" USB-C to an approved power supply ([here](https://www.raspberrypi.com/products/type-c-power-supply/), [here](https://www.adafruit.com/product/4298) or [here](https://www.amazon.com/CanaKit-Raspberry-Power-Supply-USB-C/dp/B07TYQRXTK))
 
-## First Boot
+### First Boot
 
 This takes longer that what a normal boot time will be.  In this first run you'll see actions running such as resizing the filesystem to the full size of the SD card, and generating SSH keys.  Eventually, you'll see the login prompt.
 ```bash
@@ -262,8 +262,11 @@ sudo systemctl status ufw.service
 sudo ufw enable
 sudo ufw reload
 ```
-
-1. Install ghostscript, which will be used for PDF to PNG conversion
+1. Install feh, the command line app that displays images from a given folder
+```bash
+sudo apt install feh
+```
+2. Install ghostscript, which will be used for PDF to PNG conversion
 ```bash
 sudo apt install ghostscript
 ```
@@ -306,15 +309,25 @@ export glibc_install="$(pwd)/install"
 make -j `nproc` #Then wait for a long time, upwards of XX minutes on a Raspberry Pi 4
 make install -j `nproc`
 ```
-
-1. Install Remote Debugger for .NET Core
+1. Install Docker and allow screen user to operate docker
+```bash
+sudo apt update && sudo apt upgrade
+curl -sSl https://get.docker.com | sh
+sudo usermod -aG docker screen
+exit
+# must end session for permission changes to take effect
+# once reconnected...
+docker ps #list docker containers (will be none initially)
+docker run hello-world   # will download, build, and run sample
+```
+2. Install Remote Debugger for .NET Core
 ```bash
 curl -sSL https://aka.ms/getvsdbgsh | /bin/sh /dev/stdin -v latest -l ~/vsdbg
 ```
 
-1. Set up a certification for HTTPS
+1. Set up a certificate for HTTPS
 ```bash
-sudo apt install libnss3-tools openssl
+sudo apt install libnss3-tools openssl ca-certificates curl gnupg
 
 # Create a private key and certificate for the CA:
 openssl genpkey -algorithm RSA -out ca.key

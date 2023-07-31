@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "nwallace.createguid"
+        "nwallace.createguid",
+        "sysoev.language-stylus"
     ]
 }
