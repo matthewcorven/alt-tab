@@ -926,10 +926,10 @@ hexo-theme-landscape@^1.0.0:
   resolved "https://registry.yarnpkg.com/hexo-theme-landscape/-/hexo-theme-landscape-1.0.0.tgz#43a549ebb2bea73196200ee4397feb764131a481"
   integrity sha512-bWQJWMqQI78wWiJPQZq5pJBH20TM442ShCaHGRetuEgMraxH0OKxB3NTupJzNEkzEk8DV2yrdizkXdKN6i501A==
 
-hexo-theme-next@^8.16.0:
-  version "8.16.0"
-  resolved "https://registry.yarnpkg.com/hexo-theme-next/-/hexo-theme-next-8.16.0.tgz#81e870dfafac692a08d6a0a14b8646fea1c5775d"
-  integrity sha512-UPqJXDlAThsbqsthSgC0J2qzdW5HtTxTwMnHPevgo/292qlv4Yx5noIttRV+W0WUgrzTmIVuSGuL0Sok10UhRA==
+hexo-theme-next@^8.18.0:
+  version "8.18.0"
+  resolved "https://registry.yarnpkg.com/hexo-theme-next/-/hexo-theme-next-8.18.0.tgz#a8597c1f74794445ec03ecd0b85de553b6d66c6a"
+  integrity sha512-J6LHfap6o0RSUrUeQfl5YHUHJxsOi1jqXDbmi9blLTSYOPvo6AONhfMfaTY3aJ3sBGpK+aOVLbZA0/ZBAtb/Tw==
 
 hexo-util@^2.0.0, hexo-util@^2.7.0:
   version "2.7.0"
