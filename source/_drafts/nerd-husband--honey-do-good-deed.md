@@ -114,7 +114,7 @@ ssh-keygen -t rsa -b 4096 -C
 ```bash
 ssh-copy-id screen@storedisplay.local
 # or
-cat ~\.ssh\id_rsa.pub | ssh screen@storedisplay.local 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys'
+cat ~/.ssh/id_ed25519.pub | ssh screen@storedisplay.local 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys'
 ```
 3. Remembering the private key passphrase [Windows]
 
@@ -273,8 +273,8 @@ sudo apt install ghostscript
 
 1. Install dotnet SDK
 ```bash
-wget https://download.visualstudio.microsoft.com/download/pr/46626be9-8672-4c2c-b149-3233496e4372/fb49425c9eeb4f05291a9f57250c0e0d/dotnet-sdk-8.0.100-preview.6.23330.14-linux-arm64.tar.gz
-mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-8.0.100-preview.6.23330.14-linux-arm64.tar.gz -C $HOME/dotnet
+wget https://download.visualstudio.microsoft.com/download/pr/7f0829c2-839e-4882-9e21-fa4fc6bac32d/5ade892179b687046b1252638b8cde01/dotnet-sdk-8.0.100-rc.1.23455.8-linux-arm64.tar.gz
+mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-8.0.100-rc.1.23455.8-linux-arm64.tar.gz -C $HOME/dotnet
 
 export DOTNET_ROOT=$HOME/dotnet
 export PATH=$PATH:$HOME/dotnet
