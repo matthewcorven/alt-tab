@@ -18,8 +18,8 @@
     ],
     "MarkdownPaste.path": "${fileDirname}",
     "workbench.colorCustomizations": {
-        "activityBar.background": "#143412",
-        "titleBar.activeBackground": "#1C4919",
+        "activityBar.background": "#083d6b",
+        "titleBar.activeBackground": "#083d6b",
         "titleBar.activeForeground": "#F6FCF5"
     }
 }

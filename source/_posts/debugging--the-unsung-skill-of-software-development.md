@@ -2,7 +2,7 @@
 title: Debugging - The Unsung Skill of Software Development
 slug: debugging--the-unsung-skill-of-software-development
 date: 2023-06-28
-tags: [Debugging, Software Development, Programming, Best Practices, Problem Solving, Code Maintenance, Development Skills, Self-Care, Troubleshooting, Coding Tips, Productivity, Technical Skills]
+tags: [Debugging, Software Development, Best Practices, Problem Solving, Code Maintenance, Development Skills, Self-Care, Troubleshooting, Coding Tips, Productivity, Technical Skills]
 categories: [Software Development]
 thumbnail: shutterstock_299302172.jpg
 toc:
