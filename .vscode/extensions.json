@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "nwallace.createguid",
-        "sysoev.language-stylus"
+        "sysoev.language-stylus",
+        "fantasy.vscode-hexo-utils"
     ]
 }
