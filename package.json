@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "chalk": "^4.0.2",
-    "hexo-asset-link": "^2.2.1",
+    "hexo-asset-link": "^2.2.2",
     "hexo-broken-links-checker": "^2.1.0",
     "hexo-excerpt-block": "^1.0.0",
     "hexo-featured-image": "^0.4.3",
